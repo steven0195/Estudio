@@ -1,0 +1,988 @@
+resuelve la siguiente actividad: 
+
+```markdown
+# Análisis de Caso Empresarial
+
+## “Team Airlines: Invertir en el cielo y mantenerse en tierra?”
+
+Somos Team Airlines, una aerolínea nacional de bajo costo que en los últimos cinco años ha logrado una importante expansión en rutas nacionales e internacionales, aplanando nuestras tarifas competitivas y accesibles para el mercado. No obstante, durante los últimos dos años hemos enfrentado grandes dificultades, nuestra estrategia de servicio al cliente, lo que ha impactado negativamente la experiencia del pasajero, la fidelización y la reputación de la marca.
+
+Como consecuencia, nuestra compañía ha comenzado a evidenciar afectaciones financieras reflejadas en:
+
+*   Incremento del 35% en quejas y reclamos por retrasos, pérdida de equipaje y atención deficiente.
+*   Pérdida del 15% de clientes frecuentes, que migraron a aerolíneas competidoras con mejor servicio.
+*   Su reputación en redes sociales se deterioró: calificación promedio de 2/5 en plataformas digitales.
+*   Los clientes asocian la marca con “precio bajo pero mala experiencia”.
+
+Actualmente, necesitamos rediseñar nuestro modelo de servicio para recuperar la confianza del cliente, mejorar la rentabilidad y asegurar la sostenibilidad de la aerolínea en el largo plazo. Por lo tanto, solicitamos a usted como Gerente implementar un modelo de servicio a partir de las siguientes preguntas:
+
+1.  Describa el tipo de modelo de servicio implementará en la estrategia de servicio.
+2.  Justifique cómo este modelo impactaría los estados financieros de la aerolínea.
+3.  Planteear dos riesgos que tendría esta implementación y cómo va mitigarlos.
+4.  A continuación, se presentan algunos rubros de inversión asociados a la implementación del nuevo modelo, ajustados deber.
+
+a) Seleccione los rubros que incluiría en su propuesta de modelo de servicio.
+b) Calcule el total de la inversión (en COP) para la implementación.
+c) Justifique por qué esos rubros son prioritarios para la mejora en la experiencia del cliente y en la rentabilidad de la aerolínea.
+```
+
+```markdown
+| Rubro de Inversión                                  | Valor estimado en COP |
+|----------------------------------------------------|-----------------------|
+| Plataforma digital (app y kioscos)                  | $200.000.000          |
+| CRM y analítica de clientes                        | $80.000.000           |
+| Capacitación personal de servicio                   | $50.000.000           |
+| Programa de fidelización "Team Plus"                | $50.000.000           |
+| Contratación personal de cabina                    | $60.000.000           |
+| Renovación de salas VIP y espacios en aeropuertos   | $150.000.000          |
+| Implementación de chatbots y call center inteligente | $30.000.000           |
+| Tácticas de mercado ATL-BTL                         | $100.000.000          |
+| Nueva imagen corporativa                           | $10.000.000           |
+| Investigación de mercados                          | $20.000.000           |
+| Medición de satisfacción del cliente                | $35.000.000           |
+| Implementación de estrategia B2B- (Hoteles, Aeropuertos, Restaurantes) | $90.000.000          |
+| Modernización de cabinas (asientos ergonómicos, WIFI, USB) | $500.000.000         |
+| Implementación de autoservicio de equipaje (bag drop)  | $45.000.000           |
+| Plan de seguros y garantías en el servicio al cliente | $12.000.000           |
+| Campañas de endor маркетинг (cultura interna de servicio) | $50.000.000           |
+| Infraestructura física de los aviones               | $800.000.000         |
+| Rediseño del uniforme del personal                  | $25.000.000           |
+| Aplicación de inteligencia artificial para pronóstico de demanda | $29.000.000           |
+| Desarrollo de un sistema de lealtad compartido (con bancos) | $18.000.000           |
+| Servicio posventa digital (seguimiento post-vuelo)   | $15.000.000           |
+| Implementación de kioscos biométricos (reconocimiento facial) | $30.000.000           |
+| Estrategia de sostenibilidad (combustible verde, reciclaje) | $25.000.000          |
+| Sistema de monitoreo de experiencia en vuelo (tablets tripulación) | $45.000.000           |
+| Acentos cama en clase ejecutiva                      | $30.000.000           |
+| Salas de descanso exclusivas dentro del avión (first lounge) | $70.000.000           |
+| Pantallas de gran formato para anuncios personalizados  | $65.000.000           |
+| Cabinas silenciosas con reducción de ruido            | $45.000.000           |
+| Sistemas de filtración de aire HEPA (seguridad sanitaria) | $45.000.000           |
+| Carros de servicios ligeros y ergonomónicos que faciliten la movilidad de la tripulación. | $60.000.000           |
+| **TOTAL DE LA INVERSIÓN**                          | **$2.735.000.000**     |
+```
+
+
+
+
+
+Gerencia del servicio
+
+OBJETIVO DE LA MATERIA
+Desarrollar las habilidades necesarias para
+planificar,
+implementar estrategias para
+alcanzar la excelencia en el desempeño de
+las organizaciones y procesos de servicios, a
+través del diseño eficaz y eficiente de las
+operaciones relacionadas, la gestión del
+factor humano que labora en dichas
+organizaciones y el uso intensivo de
+tecnología que otorgue mayor productividad a 
+los procesos de contacto con el cliente.
+
+CONCEPTOS BÁSICOS DE LA GERENCIA DEL SERVICIO
+• Qué es un cliente interno, cliente externo, usuario, colaborador y consumidor final.
+• Qué es un servicio?
+• Características del servicio
+• Momentos de verdad
+• Atributos del servicio y diferenciación empresarial
+• Principios del servicio
+• Qué es la gerencia del servicio?
+
+La palabra cliente también puede ser utilizada
+como sinónimo de comprador, es quien puede
+comprar
+un producto/servicio y luego
+consumirlo, o simplemente comprarlo para que
+lo disfrute otra persona.
+Sin duda, el cliente es el principal foco de
+atención de cualquier empresa
+, por lo que que
+todos
+los
+de mercadeo
+planes
+y
+las
+estrategias
+deben enfocarse, desarrollarse e
+implementarse en concordancia con ellos.
+• Cliente interno
+• Cliente externo
+• Usuario
+• Consumidor final
+• Colaborador
+• Proveedor
+• Aliados
+
+
+• El cliente es el que valora el servicio.
+• El cliente es quien determina la excelencia y por ende lo que necesita.
+• La empresa debe adquirir compromiso creando la cultura del servicio.
+• Gestionar la necesidad y expectativa del usuario final.
+• Adquirir conocimiento pleno de la organización, productos y servicios
+• Al cliente se le debe comprender y respetar.
+• El servicio debe estar permeado por factores de innovación.
+• La empresa debe contar con una normativa clara para realización de seguimiento.
+• Establecimiento de incentivo.
+• Se debe utilizar la tecnología adecuada para el apoyo de la prestación del servicio al cliente.
+
+
+SERVICIO
+Un servicio es un conjunto de actividades,
+beneficios o satisfacciones intangibles que una
+organización ofrece a un cliente para atender una
+necesidad o resolver un problema.
+El objetivo del servicio consiste en brindar
+soluciones que el consumidor necesita, de
+manera efectiva y con un trato amable.
+Un
+cliente
+satisfecho
+embajador/influenciador,
+es
+opiniones
+un
+y
+recomendaciones. La principal importancia del
+servicio es que es una estrategia fundamental
+para atraer, fidelizar y retener.
+Un cliente satisfecho es aquel que ha tenido
+una experiencia positiva con un producto o
+servicio, y considera que sus necesidades y
+expectativas han sido cumplidas o superadas
+CANALESDESERVICIO
+Contacto telefónico
+Mensajes instantáneos por app
+Correo electrónico
+Asistencia personal virtual
+Redes sociales
+Su uso implica: 
+practicar la aptitud, 
+rasgos de la 
+personalidad, 
+valores adquiridos
+El objetivo del servicio consiste en brindar
+soluciones que el consumidor necesita, de
+manera efectiva y con un trato amable.
+Un
+cliente
+satisfecho
+embajador/influenciador,
+es
+opiniones
+un
+y
+recomendaciones. La principal importancia del
+servicio es que es una estrategia fundamental
+para atraer, fidelizar y retener.
+Asistencia presencial
+Chatbots/ herramientas IA
+
+Diferenciación
+Fidelización
+Incremento rentabilidad y reputación.
+Una aerolínea no solo vende
+tiquetes. La gerencia del servicio
+se asegura de que:
+• Elproceso de compra sea fácil.
+• La atención en el aeropuerto sea
+rápida.
+• La experiencia en el vuelo sea
+positiva.
+• Las quejas se gestionen de forma
+eficaz.
+
+Intangibles
+Porgue este es la manera como una organización responde y resuelve las peticiones,
+quejas, reclamos y sugerencias de los clientes (PQRS), En ningün momento se le
+puede realizar una prueba. Es decir, no se puede tocar, sentir o desgastar antes de la
+adguisición depende de las experiencias previas propias o de otras personas.
+
+Perecedero
+El servicio se produce y se consume instantáneamente. Esto quiere decir que por su
+falta de propiedad no se pueden almacenar y son susceptibles de caducar.
+
+Continuo
+La empresa que presta el servicio es también la prestadora del servicio al cliente,
+ejemplo un banco te vende producto transferencia bancaria, pero a la vez te
+proveer del servicio que se traduce con la rapidez o la oportunidad en el tiempo de
+la transferencia.
+
+Integral
+Porgue el servicio es transversal a toda la organización.No es exclusiva del area
+comercial. La prestación integral del servicio al cliente genera valor agregado que se
+traduce en la fidelización del cliente y para la organización en mejores resultados en
+todo orden retención y mantenimiento de clientes.Un cliente fidelizado en el tiempo
+se convierte en factor de aumento y frecuencia de compra.
+
+Promesa bäsica
+El eständar para medir la satisfacción el cliente,tiene relación directa con los
+compromisos adguiridos de entrega del producto unido ala promesa de vento
+tiempo de duración).Nunca le prometa al cliente lo gue usted no puede cumplir
+
+
+Principios de 
+servicio al cliente
+• En el servicio nunca se debe prometer lo que no se puede
+cumplir.
+Su uso implica: 
+practicar la aptitud, 
+rasgos de la 
+personalidad, 
+valores adquiridos
+• Ubicar personal con perfil equivocado y sin vocación de servicio
+en los puestos claves de la organización por ese primer contacto
+que estos realizan.
+• Tener personal no capacitado a cargo de realizar el contacto
+directo con las personas y sin información para dar una respuesta
+oportuna.
+• Notener definido la ruta crítica de servicio o flujograma de servicio
+en los que se establezca el procedimiento en momentos críticos
+para cambiar la percepción de demora en la atención.
+• No dar la información adecuada o correcta al cliente solo por el
+hecho de cerrar ventas y cumplir con las ventas. Ejemplo horario
+de atención.
+
+MOMENTOS DE VERDAD
+**Descripción General:**
+La imagen es un diagrama circular que ilustra los "Momentos de Verdad" en la experiencia de comer en un restaurante.  El diagrama está sobre un fondo degradado de color amarillo y blanco. El título del diagrama es "Momentos de Verdad", escrito en letras grandes y negritas en la parte superior.
+**Elementos Principales:**
+*   **Diagrama Circular:** La imagen central es un círculo dividido en segmentos, cada uno representando una etapa o interacción clave durante una experiencia gastronómica.
+*   **Nodos/Puntos:** Dentro del círculo hay 12 nodos (puntos) conectados por líneas. Cada nodo tiene una etiqueta que describe un momento específico de la experiencia.
+*   **Colores de los Nodos:** Los nodos están coloreados en dos tonos:
+    *   **Amarillo:** Representa "Momentos de Verdad No Críticos".  Estos son momentos importantes, pero no necesariamente determinantes para la satisfacción general del cliente.
+    *   **Rojo:** Representa "Momentos de Verdad Críticos". Estos son los momentos que tienen un impacto significativo en la percepción y satisfacción del cliente.
+*   **Texto/Etiquetas:** Cada nodo tiene una etiqueta escrita en español, describiendo el momento específico:
+    1.  Facilidades de Parqueo (Rojo)
+    2.  Aspecto General del Lugar (Rojo)
+    3.  Recepción y Ubicación (Rojo)
+    4.  Servicio Inicial (Amarillo)
+    5.  Espera por la Carta (Amarillo)
+    6.  Toma del Pedido (Amarillo)
+    7.  Espera por el Servicio (Amarillo)
+    8.  Características Organolépticas de la Comida (Amarillo)
+    9.  Atención Durante el Consumo (Amarillo)
+    10. Pago de la Cuenta (Amarillo)
+    11. Espera por la Cuenta (Amarillo)
+    12. Despedida (Amarillo)
+**Disposición y Conexiones:**
+*   Los nodos están dispuestos alrededor del círculo en un orden que parece representar una secuencia lógica de eventos durante una comida en un restaurante, desde el estacionamiento hasta la despedida.
+*   Las líneas conectan los nodos, indicando el flujo o la progresión de la experiencia.
+*   En el centro del diagrama circular hay texto que dice "Comer en un Restaurante".
+**Propósito:**
+El diagrama tiene como objetivo visualizar y destacar los momentos clave en una experiencia gastronómica donde las acciones del restaurante pueden tener un impacto significativo en la percepción del cliente.  Los momentos marcados en rojo son especialmente importantes para el éxito del negocio.
+
+Pautas para crear una posición competitiva 
+en el servicio
+
+1. Conocer profundamente al cliente
+Investigar sus expectativas, hábitos y motivaciones.
+Actualizar constantemente esta información.
+2. Diseñar experiencias memorables
+Ir más allá del producto: sorprender y superar expectativas.
+Ejemplo: Crepes & Wafles convierte una comida en una
+experiencia de hospitalidad.
+3. Diferenciarse en atributos de servicio
+Rapidez, accesibilidad, trato humano, personalización.
+Buscar lo que la competencia no hace bien.
+4. Desarrollar cultura organizacional orientada al
+servicio
+Formar a todos los colaboradores (no solo al área de atención).
+Reconocer y premiar actitudes de servicio.
+5. Innovar continuamente
+Su uso implica: 
+practicar la aptitud, 
+rasgos de la 
+personalidad, 
+valores adquiridos
+Usar tecnología para mejorar procesos y comunicación.
+Adoptar nuevas prácticas: autoservicio, canales 
+digitales, seguimiento automatizado.
+6. Estandarizar procesos y medir resultados
+Documentar procedimientos para que el servicio sea 
+consistente.
+Medir satisfacción y corregir desviaciones.
+7. Retroalimentación y mejora continua
+Aprovechar quejas y reclamos como oportunidades para 
+aprender y fidelizar.
+
+
+El servicio no debería ser un departamento de la empresa. Debería ser toda la
+empresa…-Tony Hsieh
+Mucha gente tiene cosas extravagantes que decir sobre el servicio, pero es
+solo una actividad diaria, continua, interminable, perseverante y compasiva.
+Christopher McCormick
+En el mundo del servicio en la era digital, es importante recordar que tu
+competidor está a solo un clic de distancia…-Doug Warner
+
+
+Calidad en el Servicio
+
+**Descripción General:**
+La imagen es un diagrama conceptual sobre "Calidad en el Servicio". Presenta un diseño circular con elementos interconectados, todo ello sobre un fondo degradado de color azul claro a blanco. El título del diagrama está escrito en letras grandes y negritas en la parte superior.
+**Elementos Principales:**
+*   **Diagrama Circular:** La imagen central es una rueda o círculo dividido en ocho secciones principales. Cada sección representa un aspecto clave para lograr la calidad en el servicio.
+*   **Nodos/Puntos:** Dentro de cada sección del círculo hay texto que describe el elemento específico relacionado con la calidad del servicio.
+*   **Conexiones y Categorías:** Las secciones están conectadas entre sí por líneas, y estas líneas están etiquetadas con tres categorías principales: "Conocimientos", "Actitudes" y "Habilidades". Esto indica cómo estos elementos se relacionan e interactúan para lograr la calidad del servicio.
+*   **Texto/Etiquetas (en español):** Cada nodo tiene una etiqueta escrita en español, describiendo el aspecto específico de la calidad del servicio:
+    1.  Conocer a los del Servicio
+    2.  Identificar las necesidades de los usuarios de los Servicios
+    3.  Establecer las características o los Estándares del Servicio
+    4.  Realizar el procedimiento para el otorgamiento del Servicio
+    5.  Definir con claridad el Servicio que presta
+    6.  Desarrollar una actitud positiva y comunicación con el usuario del Servicio
+    7.  Lograr Satisfacción del Usuario
+    8.  (El centro del círculo) "Calidad en el Servicio"
+**Disposición y Conexiones:**
+*   Las secciones están dispuestas alrededor del círculo de manera que sugieren un ciclo o proceso continuo para lograr la calidad en el servicio.
+*   Las líneas etiquetadas como "Conocimientos", "Actitudes" y "Habilidades" conectan los nodos, mostrando cómo estos tres pilares fundamentales influyen en cada aspecto de la prestación del servicio.
+**Propósito:**
+El diagrama tiene como objetivo ilustrar visualmente los componentes esenciales para ofrecer un servicio de alta calidad.  Muestra que la calidad no es solo una cuestión de procedimientos, sino también de conocimiento, actitud y habilidades por parte del personal que presta el servicio. El diseño circular enfatiza la naturaleza cíclica e interconectada de estos elementos.
+**Detalles Adicionales:**
+*   El estilo visual es limpio y profesional, con un enfoque en la claridad y la organización de la información.
+*   La paleta de colores (azul claro y blanco) transmite una sensación de confianza y profesionalismo.
+
+La calidad del servicio desempeña un papel fundamental en el éxito de
+cualquier empresa. Brindar un servicio excepcional no solo satisface las
+necesidades y expectativas de los clientes, sino que también fortalece su
+lealtad y confianza en la marca.
+La calidad del servicio desempeña un papel fundamental en el éxito de
+cualquier empresa. Brindar un servicio excepcional no solo satisface las
+necesidades y expectativas de los clientes, sino que también fortalece su
+lealtad y confianza en la marca.
+Para lograrlo es necesario implementar estrategias efectivas que mejoren
+continuamente la calidad del servicio; desde la personalización hasta la
+comunicación interna, existen diversas áreas en las que una empresa puede
+enfocarse para elevar su estándar de servicio y destacarse en un mercado
+competitivo.
+
+Estrategia de Calidad  orientado al 
+Servicio
+• El liderazgo de la gerencia es la base de la cadena.
+• La calidad interna impulsa la satisfacción de los empleados
+• La satisfacción de las personas empleadas impulsa su lealtad.
+• La lealtad de los empleados impulsa la productividad
+• La productividad de los empleados impulsa el valor del servicio
+• El valor del servicio impulsa la satisfacción del cliente. 
+• La satisfacción del cliente impulsa la lealtad del cliente.
+
+Medición de la calidad en el 
+servicio
+Existen diversas formas de medir la calidad del servicio al cliente, como:
+• Encuestas de satisfacción del cliente
+• Evaluaciones de seguimiento y retroalimentación
+• Análisis de quejas y reclamaciones
+• Métricas de rendimiento
+• Evaluación de calidad interna
+
+Estrategias de mejoramiento en la
+calidad del servicio
+Establecer estándares claros
+Capacitar al personal
+Fomentar la cultura del servicio al cliente
+Escuchar activamente al cliente
+Personalizar el servicio
+Mejorar la comunicación interna
+Obtener retroalimentación y actuar sobre ella
+Reconocer y recompensar a los empleados
+
+Gerencia del Servicio
+Es un enfoque total de la organización que hace de la Calidad del Servicio,
+cuando lo recibe el cliente, la fuerza motriz número uno para la operación de un
+negocio.
+
+**Descripción General:**
+La imagen es un diagrama de flujo que ilustra el proceso para lograr una excelente experiencia al cliente a través de la gerencia del servicio. El diagrama está organizado en dos ramas principales, conectadas por una bifurcación central.  El fondo es blanco y los elementos están delineados con líneas negras gruesas.
+**Elementos Principales:**
+*   **Ramas del Diagrama:** Hay dos caminos principales que se desarrollan desde un punto de inicio común.
+    *   **Rama 1 (Superior):** Comienza con "Generar mentalidad de servicio" y continúa a través de "Reducir las molestias" hasta llegar a "Experiencia placentera".
+    *   **Rama 2 (Inferior):**  Comienza con "Lenguaje cercano con los clientes" y avanza por "Cumplir las promesas" para finalizar en "Anteponer al cliente".
+*   **Nodos/Cajas:** Cada rama está compuesta de cajas rectangulares que representan pasos o acciones clave. Dentro de cada caja hay texto descriptivo.
+    *   **Generar mentalidad de servicio:**  Implica fomentar una cultura centrada en el cliente dentro de la organización.
+    *   **Reducir las molestias:** Se refiere a eliminar puntos de fricción y dificultades en el proceso de atención al cliente.
+    *   **Experiencia placentera:** El objetivo final de esta rama es crear una experiencia positiva y memorable para el cliente.
+    *   **Lenguaje cercano con los clientes:**  Implica utilizar un tono de comunicación amigable, accesible y empático.
+    *   **Cumplir las promesas:** Se refiere a mantener la integridad y la confiabilidad en lo que se ofrece al cliente.
+    *   **Anteponer al cliente:** Significa priorizar las necesidades y deseos del cliente por encima de otros factores.
+*   **Flechas:** Flechas indican el flujo del proceso, conectando cada caja con la siguiente.  Las flechas son negras y apuntan en una sola dirección.
+*   **Bifurcación Central:** Un punto central divide el diagrama, mostrando que tanto "Generar mentalidad de servicio" como "Lenguaje cercano con los clientes" son puntos de partida importantes para lograr un excelente servicio al cliente.
+**Propósito del Diagrama:**
+El diagrama visualiza una estrategia para la gerencia del servicio, destacando cómo diferentes acciones y enfoques (mentalidad de servicio, lenguaje amigable, cumplimiento de promesas) contribuyen a crear una experiencia positiva y centrada en el cliente.  Muestra que ambas ramas son importantes y convergen hacia un objetivo común: satisfacer al cliente.
+**En resumen:** El diagrama es una representación gráfica del proceso para lograr la excelencia en el servicio al cliente, enfatizando la importancia de la mentalidad, la comunicación y el cumplimiento de promesas para crear una experiencia positiva y priorizar las necesidades del cliente.
+
+Gerencia del servicio
+La clave para ganar todos
+Presentación
+Las empresas han tratado de mejorar su eficiencia mediante la 
+implementación de la filosofía del servicio al cliente. Por tal razón, 
+en los últimos tiempos, a escala mundial, las compañías han dejado 
+de centrarse en el producto que ofrecen para centrarse en el cliente, 
+pues al momento de evaluar la rentabilidad, este es su verdadera 
+razón de existir.
+Sin embargo, conceptual y mentalmente somos “cortoplacistas” 
+y no logramos enfocar las actitudes de nuestros colaboradores 
+a largo plazo, que es donde está el verdadero camino hacia la 
+excelencia en el servicio, para que estas se vuelvan una filosofía, 
+sino que en muchas ocasiones tomamos este proceso como un 
+programa pasajero o algo de moda. El problema de fondo radica en 
+que iniciar un estrategia de servicio, como cualquier otro proceso 
+de cambio organizacional, implica un tiempo realmente largo, 
+durante el cual se deben invertir todos los recursos disponibles de 
+la institución para obtener el éxito deseado. 
+Algunos de los servicios que el cliente recibe en la preventa son: 
+información, publicidad, educación, asistencia técnica, correo 
+directo, demostraciones; en la venta recibe: interacción personal, 
+condiciones de venta, características y disponibilidad de producto, 
+requisitos y condiciones técnicas, despachos y garantías, y en la 
+posventa: entrega oportuna, cumplimiento de la garantía, asistencia 
+técnica, seguimiento de su satisfacción, evaluación del servicio, etc. 
+Todo esto lo hace el cliente interno, las personas de su organización.
+Hoy ni siquiera la tecnología, salvo en mercados absolutamente 
+sistematizados, genera ventajas competitivas. Si usted hace 
+un listado de las cosas que diferencian su compañía de otras 
+prestadoras de servicios afines, encontrará que su competencia 
+tiene o puede tener, a corto plazo, exactamente las mismas 
+ventajas competitivas suyas. La única forma posible de conservar a 
+los clientes es superando siempre a la competencia y la clave está 
+en el servicio.
+Entonces, el servicio al cliente se une a la cadena de suministro y 
+genera políticas en materia de producción, sistema de inventarios, 
+compra de insumos, técnica de ventas, etc.; es decir, que a partir del 
+cliente la empresa diseña estrategias de mercadeo, comercialización, 
+comunicación, servicios y demás, para fortalecer su portafolio de 
+productos, bienes y servicios.
+El caso típico y concreto, a manera de ejemplo visible, son los 
+cajeros automáticos: hace unos años, cuando salieron al mercado, 
+tener uno era una ventaja competitiva, porque era una garantía 
+real. Hoy, tener un cajero de estos, para una entidad financiera, 
+comercial, de consumo masivo, de puntos especializados de venta, 
+no es ventaja considerable; pero no tenerlo es un problema y más 
+cuando no funcionan de manera adecuada y oportuna. 
+Las organizaciones han cambiado la mentalidad de vender solo 
+por resultados por la de vender a partir de la atención al cliente. 
+Entonces, sale de allí que la diferencia en la era del servicio es el 
+talento humano: es el ser, la persona, el empleado, el funcionario, 
+quien presta el servicio y lo hace extensivo a la clientela, pues la 
+tecnología se adquiere más rápido que la modificación de la actitud 
+del personal hacia el cliente. 
+Uno de los problemas en las empresas modernas, en relación con 
+el servicio, radica en que estas prefieren “tener la razón” en lugar 
+de arreglar los problemas de los clientes. Asimismo, otras quieren 
+descrestar al cliente con todo lo que saben; pero hay clientes que 
+tienen años de experiencia, conocimientos, y lo único que desean 
+es satisfacer una necesidad específica.
+Lo importante dentro de la filosofía del servicio es tener una visión 
+clara del “valor agregado” que el usuario, beneficiario, asociado o 
+cliente espera de nuestra empresa. Por eso es oportuno encontrar 
+y “satisfacer plenamente” las necesidades reales de los clientes o 
+de aquellas que ni siquiera se han dado cuenta que tienen. No nos 
+podemos quedar en lo que la gente necesita, sino que tenemos 
+que mirar lo que le podemos generar como beneficio adicional. 
+También debemos diseñar estructuras organizacionales planas 
+que entreguen verdadero poder a las personas que deben tomar 
+decisiones rápidas en el momento de la prestación del servicio. 
+Los procesos de mejoramiento organizacional se deben elaborar 
+pensando en el cliente y no en la empresa. Muchas veces sucede 
+que los procesos son diseñados de adentro hacia afuera y no de 
+afuera hacia adentro. Es decir, si usted diseña su proceso detrás 
+de la ventanilla nunca va a entender qué es lo que quiere, desea, 
+necesita o siente realmente la persona que está en la fila de espera. 
+La meta es prestar un servicio al cliente excelente sin servicio 
+al cliente, esto es, eliminando los problemas e inconvenientes 
+causantes de la primera llamada del usuario. 
+Hoy y mañana, todas la áreas funcionales de las empresas se tienen 
+que reenfocar hacia la filosofía del servicio y esto se obtiene en 
+gran parte mediante la capacitación, la cual si no es implementada 
+estratégicamente puede ser desaprovechada, perdiendo el cliente 
+interno la oportunidad de mejorar el balance social de la compañía 
+a la cual pertenece. Tampoco se trata de implementar herramientas 
+tecnológicas de moda; lo que verdaderamente cuenta es tener 
+a la gente preparada y motivada, pues de lo contrario ninguna 
+estrategia servirá.
+Este libro con toda seguridad despertará en usted el interés y la 
+pasión por el servicio, comenzando por identificar la filosofía del 
+servicio, pasando por la revolución del servicio, entendiendo el 
+servicio como sistema; conocer la importancia de la calidad en 
+el servicio para generar valor agregado a este como una forma 
+de actuar personalizada, permanente y mejorada, mediante la 
+interacción con los usuarios de la entidad con la cual usted está 
+comprometido.
+Aproveche esta oportunidad única para formarse en esta cultura 
+organizacional del servicio, como parte de las prioridades que 
+busca consolidar la gerencia moderna en cualquier empresa 
+colombiana y extranjera. El único responsable de la validación de 
+esta magnífica propuesta editorial colombiana es usted mismo; 
+con sus ganas, capacidad, lealtad, honestidad y responsabilidad 
+en la lectura, desarrollo de los ejercicios y talleres, consulta de la 
+bibliografía de referencia y, sobretodo, con el cambio de actitud 
+hacia quienes pagan nuestro salario: los clientes. 
+Estimado amigo, estudiante, profesor, empresario, gerente o 
+persona que ya me conoce, también aquellos con los que aún 
+no hemos tenido la oportunidad de compartir conocimientos y 
+experiencias de manera personal, aquí tienen el primer paso para 
+comprobar que brindando un mejor servicio a aquellos que lo 
+necesitan, incluso a usted mismo, el futuro de todos cambiará.
+¡Recuerde que la gerencia del servicio es la clave para ganar todos!  
+¡Si no puede encontrar un libro mejor sobre el servicio... compre este!.
+1. La imagen de la organización
+El manejo de la imagen de una compañía es una de las acciones 
+clave de la gerencia. El líder debe definir cuál es la imagen que se 
+desea proyectar, las alternativas para logarlo, cómo se desarrollan 
+y establecer los indicadores para evaluar el impacto que se causa 
+dentro de la misma organización y en su público externo. 
+Este fenómeno se da porque el ser humano comprende y maneja 
+la realidad interpretando y dando sentido a todo lo que lo rodea, 
+a sus experiencias en relación con su entorno, por eso usted 
+debe fomentar el proceso de implementación de la imagen de su 
+empresa, el cual tiene los siguientes pasos (mapa 1):
+1. Crear la imagen de la organización requiere establecer los rasgos 
+distintivos que permitan identificarla y diferenciarla claramente 
+dentro del mercado.
+2. Proyectar la imagen consiste en disponer íntegramente todos los 
+elementos pertinentes para orientar la construcción de lo que se 
+quiere vender como empresa. 
+3. Mantener la imagen de la empresa, positiva por supuesto, implica 
+mostrar con la calidad del servicio el impacto causado con el 
+producto de forma inicial, logrando consolidar la confianza y la 
+lealtad de los clientes y ampliando la penetración, el cubrimiento 
+y el posicionamiento en el mercado.
+4. Desarrollar la imagen de la institución es mantener al día los 
+componentes del servicio según las exigencias del crecimiento 
+de la economía y del sector, siempre obteniendo la satisfacción 
+total del cliente. 
+El gerente de la empresa es el usuario, beneficiario, cliente.
+J.E.P.H.
+
+(titulo principal) Dimensión humana en el servicio y personal 
+de servicio 
+
+TEMÁTICA
+Haga de lo ordinario algo extraordinario (“depende de ti”).
+El servicio, mucho más que sonreír.
+La humanización en el servicio, retórica o realidad.
+Análisis del cliente desde la perspectiva humana /incluye la comercial.
+El mercadeo atrae al cliente, las ventas lo ganan, la calidad en el servicio lo retiene.
+El servicio es mucho más que técnicas para atender clientes.
+Liderazgo efectivo en servicio (Cultura de servicio).
+“El cliente olvida lo que le dices, pero 
+nunca olvida cómo lo hiciste sentir. La 
+verdadera humanización del servicio no 
+se predica, se practica.”
+"Haga de lo ordinario algo extraordinario" resuena con la idea de 
+que cada día, cada momento, puede ser transformado en algo 
+especial si se aborda con la actitud correcta.
+“Depende de ti" enfatiza que la elección de ver y crear lo 
+extraordinario está en nuestras manos. No es algo que ocurra por 
+casualidad, sino que es el resultado de una elección consciente y 
+de la intención puesta en cada acción.
+Enfoque en la gratitud: Ser consciente de las pequeñas cosas que normalmente se dan por
+sentado, como la belleza de la naturaleza, la compañía de amigos y familiares, o la salud, puede
+convertir lo ordinario en algo extraordinario.
+Búsqueda de la excelencia en lo cotidiano: No se trata de buscar grandes logros, sino de
+encontrar la excelencia en las tareas diarias. Un trabajo bien hecho, un gesto amable, una
+conversación significativa, todo esto puede ser extraordinario.
+Creación de momentos especiales: Aprovechar las oportunidades para crear momentos
+memorables, ya sea a través de la creatividad, la aventura o la conexión humana.
+
+Humanización en el servicio
+Convertir interacciones NORMALES en experiencias positivas, 
+donde la conexión emocional hace que el cliente se sienta 
+cuidado y comprendido.
+
+Humanización en el servicio
+Es un enfoque que busca poner en el centro de la experiencia a las personas, tanto clientes como 
+colaboradores, entendiendo sus emociones, necesidades y expectativas. Sirve para:
+Generar confianza y cercanía: cuando el cliente
+percibe trato humano, cálido y empático, se siente
+valorado más allá de una transacción.
+Fidelizar clientes: un servicio humanizado crea
+experiencias memorables, que hacen que los
+clientes repitan y recomienden la marca.
+Diferenciarse de la competencia: en mercados
+saturados, el factor humano es una ventaja
+competitiva difícil de copiar.
+Mejorar la reputación de la empresa: la forma en
+que se trata a las personas impacta en la
+percepción pública y en la marca.
+Fortalecer el clima laboral: colaboradores
+motivados y tratados con respeto transmiten esa
+actitud positiva a los clientes.
+Reducir conflictos y reclamos: la empatía, la
+escucha activa y la comunicación clara minimizan
+malentendidos y aumentan la satisfacción.
+
+Análisis del Cliente desde la Perspectiva Humana y Comercial
+Dimensión Humana
+Se centra en comprender al cliente como persona, no solo como comprador:
+Emociones: qué lo motiva, qué le genera confianza o desconfianza.
+Valores y creencias: qué cosas aprecia (ej. sostenibilidad, exclusividad, rapidez, seguridad).
+Estilo de vida: hábitos, aspiraciones, nivel de interacción con la tecnología, dinámicas familiares.
+Experiencia buscada: cómo quiere sentirse al recibir el servicio (cuidado, atendido, sorprendido,
+valorado).
+Se busca empatía: ponerse en los zapatos del cliente para anticiparse a sus expectativas y
+superar lo que espera.
+
+Dimensión Comercial
+Se enfoca en la relación del cliente con la marca, el producto y la decisión de compra:
+Necesidades explícitas: lo que pide o busca directamente (ej. un transporte seguro, un spa de lujo, un carro
+nuevo).
+Necesidades implícitas: lo que espera sin decirlo (ej. amabilidad, rapidez en la respuesta, trato exclusivo,
+facilidad de pago).
+Comportamiento de compra: cómo toma decisiones (por precio, por confianza, por recomendación, por
+experiencia).
+Rentabilidad: valor del cliente en el tiempo (LTV– Lifetime Value), fidelización, recompra y referidos.
+Segmentación: identificar si es cliente corporativo, individual, de lujo, masivo, local, extranjero, etc.
+Se busca estrategia: diseñar experiencias y ofertas que aumenten el valor comercial de cada cliente,
+fortaleciendo la relación emocional.
+
+Integración Humano–Comercial
+La clave está en alinear lo humano con lo
+comercial:
+Escuchar al cliente → lealtad y confianza.
+Cuidar su experiencia → mayor disposición a pagar y recomendar.
+Personalizar el servicio → incremento en ventas cruzadas y repetición.
+Tratarlo con respeto y empatía → diferenciación frente a la competencia.
+
+Humano: El huésped
+busca sentirse como en
+casa, escuchado, con
+un trato cálido.
+Comercial: Si el cliente
+se siente cuidado, no
+solo vuelve, sino que
+también contrata otros
+servicios
+(spa,
+restaurante, eventos) y
+recomienda el hotel.
+
+El mercadeo despierta la atención, las 
+ventas conquistan la confianza y la 
+decisión, pero es la calidad en el servicio la 
+que construye lealtad. 
+Sin un servicio de calidad, el ciclo se 
+rompe y la inversión en mercadeo y ventas 
+se desperdicia.
+
+Mercadeo abre la puerta y crea expectativas
+El mercadeo es la primera conexión entre la
+empresa y su público objetivo.
+•Rol: despertar interés, generar visibilidad y
+transmitir el valor de la marca.
+•Cómo lograrlos: mediante estrategias de
+posicionamiento, publicidad, redes sociales,
+branding, promociones, relaciones públicas, etc.
+•Ejemplo: una campaña digital de un hotel que
+comunica experiencias de lujo y bienestar
+despierta la curiosidad de clientes que buscan
+ese estilo de viaje.
+
+Ventas transforman la intención en acción
+Las ventas convierten el interés en una decisión de
+compra.
+Rol: escuchar, identificar necesidades, ofrecer
+soluciones, generar confianza y cerrar el negocio.
+Cómo lograrlo: a través de una comunicación clara,
+una propuesta de valor convincente, empatía y
+técnicas de negociación.
+Ejemplo: un asesor automotriz que no solo habla del
+precio, sino que entiende la necesidad de seguridad
+de una familia y ofrece el modelo que mejor se
+adapta a ella.
+
+La calidad en el servicio convierte una venta en 
+una relación a largo plazo
+Aquí es donde la verdadera fidelización ocurre.
+Rol del servicio: garantizar que lo prometido se
+cumpla e incluso se supere.
+Cómo lo logra: con atención personalizada,
+resolución
+ágil
+de problemas, experiencia
+memorable, seguimiento posventa.
+Ejemplo: una empresa de taxis que no solo cumple
+con puntualidad y seguridad, sino que además
+mantiene contacto con el cliente para conocer su
+satisfacción.
+Un cliente bien atendido no solo regresa, sino que
+recomienda.
+
+Una empresa que invierte solo en 
+marketing puede atraer mucho tráfico 
+pero no vender.
+Su uso implica: 
+practicar la aptitud, 
+rasgos de la 
+personalidad, 
+valores adquiridos
+Una empresa que solo se enfoca en 
+ventas sin marketing pierde alcance y 
+prospección.
+Una empresa que vende sin un buen 
+servicio posventa pierde clientes 
+rápidamente y tiene que gastar más en 
+conseguir nuevos.
+
+El servicio es mucho más que técnicas para 
+atender clientes difíciles
+Es una filosofía, no un protocolo
+El servicio no se limita a aplicar fórmulas cuando un cliente está
+molesto.
+Es una cultura organizacional que impregna cada contacto con el
+cliente.
+Es anticipación, no solo reacción
+Atender clientes difíciles es reaccionar, pero un servicio superior
+se anticipa a las necesidades.
+Preguntar, escuchar, personalizar y sorprender antes de que
+surja un problema.
+Es conexión emocional
+El cliente no recuerda solo el producto, sino cómo lo hicieron
+sentir.
+El servicio auténtico busca generar confianza, tranquilidad y
+satisfacción.
+Es consistencia y confianza
+No basta con resolver una crisis puntual; el
+cliente necesita coherencia en cada interacción.
+Es diferenciación y fidelización
+En mercados donde los productos son similares,
+el servicio es lo que marca la diferencia.
+La calidad en el servicio es la que convierte a un
+comprador en un embajador de la marca
+
+Liderazgo Efectivo en Servicio-Cultura de Servicio
+"El liderazgo en servicio no se mide por lo que el líder dice, 
+sino por lo que su equipo hace sentir al cliente."
+
+El líder como modelo del 
+servicio
+El servicio no se impone con discursos, se inspira
+con ejemplo.
+Los colaboradores replican lo que ven en sus
+líderes: respeto, escucha activa, trato humano.
+Claves: coherencia, humildad, disponibilidad para
+escuchar tanto a clientes como a colaboradores.
+“Un líder que sirve a su equipo, forma un 
+equipo que sirve al cliente”
+
+Cultura de servicio como filosofía 
+organizacional
+No es un “departamento”, es un ADN que se respira
+en cada área.
+La cultura de servicio implica que todos —ventas,
+logística, administración— entienden que su trabajo
+impacta al cliente final.
+Se construye con:
+Valores compartidos (respeto, empatía, excelencia).
+Procesos alineados (cada paso orientado a facilitar
+la vida del cliente).
+Reconocimiento y retroalimentación (celebrar a
+quienes viven el servicio con excelencia).
+
+Liderazgo efectivo:
+Liderazgo en 3 dimensiones
+Con el cliente → Crear
+experiencias memorables, no
+solo transacciones.
+Con el equipo → Desarrollar,
+motivar y empoderar al talento
+humano.
+Con la organización → Integrar
+la cultura de servicio a la
+estrategia empresarial.
+
+Herramientas de Liderazgo en la 
+Cultura de Servicio
+Comunicación clara y cercana: que todo el equipo
+entienda el “por qué” del servicio.
+Capacitación constante: entrenar en empatía,
+resolución de problemas y gestión emocional.
+Empoderamiento: permitir a los colaboradores tomar
+decisiones para resolver necesidades del cliente.
+Retroalimentación positiva: usar casos de servicio bien
+logrado como aprendizaje y motivación.
+Visión compartida: alinear la misión de la empresa con
+el valor de servir.
+
+Beneficios de una cultura de servicio 
+liderada con efectividad
+• Clientes más fieles y promotores de la marca.
+• Equipos comprometidos, motivados y con sentido de pertenencia.
+• Diferenciación competitiva en mercados saturados.
+• Reputación sólida y sostenible en el tiempo.
+
+
+
+#Herramientas Financieras para 
+Gerenciar el Servicio
+TEMÁTICA
+● Comprensión de los estados financieros y su 
+relación con el servicio. 
+● Indicadores financieros y el servicio. 
+● Implementación de un modelo de servicio.  
+● Beneficios de la atención a las quejas y reclamos 
+de los clientes. 
+● El costeo del modelo de servicio. 
+
+
+
+Balance General: Muestra lo que la empresa posee (activos), lo que debe (pasivos) y la diferencia entre ambos (patrimonio).
+
+Activos: Bienes tangibles e intangibles (ejemplo infraestructura
+Pasivos: Obligaciones como préstamos, devoluciones o garantias.
+Patrimonio: Rigueza neta de los duenos; aumenta con clientes satisfechos y leales.
+Relación con el servicio: La reputación y la experiencia del cliente son activos intangibles que fortalecen el valor de la empresa
+
+Estado de Resultados: Refleja el desempeno en un periodo: ingresos, costos, gastos y utilidad.
+Ingresos: Aumentan con un buen servicio que genera satisfacción y repetición de compra.
+Costos: Incluyen inversión en personal de servicio. capacitación, plataformas de atención.
+Gastos: Como publicidad o fidelización.
+Utilidad: Beneficio neto que se logra gracias a una adecuada gestión del servicio.
+ Relación con el servicio: El servicio influye directamente en las ventas y costos de operación.
+
+## Flujo de Efectivo
+Muestra cómo entra y sale el dinero de la empresa.
+Buen servicio -> clientes pagan a tiempo, recomiendan generan ingresos constantes
+Mal servicio - > devoluciones, retrasos en cobros aumento de gastos imprevistos
+Relación con el servicio: la eficiencia en el servicio asegura un flujo de efectivo positivo
+
+
+## Conexion Servicio-Finanzas
+El servicio es un activo intangible que crea valor.
+Los estados financieros permiten medir cómo las decisiones en el servicio impactan la rentabilidad.
+Un gerente de servicio debe saber interpretar  estados financieros para justificar inversiones en calidad de atención, personal o tecnologia.
+
+Un hotel 5 estrellas decide invertir en mejorar su
+servicio:
+Antes: Ocupación del 60%, quejas frecuentes, alta rotación de clientes
+Después: Ocupación del 90%, clientes fieles, mayor rentabilidad.
+Impacto en los estados financieros: Aumento de ingresos en el Estado de Resultados
+Reducción de pasivos por compensaciones en el Balance.
+Flujo de efectivo mas estable
+
+Son herramientas que permiten medir la situación financiera de la empresa en términos de liquidez, rentabilidad y eficiencia
+Además de los indicadores tradicionales, en la gestión de servicios se utilizan otros:
+ROl (Return on Investment- Retorno de la inversión): Mide la rentabilidad de una inversión en servicio
+CAC (Costo de Adquisición de Cliente): Cuänto cuesta atraer un nuevo cliente
+LTV (Lifetime Value o Valor del Cliente en el Tiempo): Cuänto dinero genera un cliente durante su relación con la empresa.
+Tasa de Retención de Clientes: Porcentaje de clientes que permanecen con la empresa.
+Tasa de Pérdida de Clientes (Churn): Porcentaje de clientes que se van por mal servicio.
+Estos indicadores permiten valorar la importancia financiera de la experiencia del cliente.
+
+# Modelo de servicio
+Estructura gue describe cómo una organización o empresa disena, entrega y gestiona sus servicios para
+satisfacer las necesidades de los clientes
+
+1. Cliente: Centro del modelo. El servicio debe estar diseñado para satisfacer las necesidades y expectativas del cliente o usuario final.
+2. Oferta de servicio: es la propuesta de valor del servicio, lo que la empresa ofrece para resolver una necesidad del cliente. Esto incluye el producto o servicio en si, asi como cualquier característica adicional, como la
+personalización o el soporte
+3. Proceso de entrega del servicio: describe cómo se lleva a cabo el servicio, desde el inicio hasta su finalización. Incluye los flujos de trabajo, las etapas y los procedimientos para garantizar que el servicio se entregue de manera consistente y eficiente
+4. Recursos: se categorizan asi
+- Humanos: personal y habilidades necesarias para brindar el servicio
+- Tecnológicos: herramientas, software sistemas y tecnologia que permiten la entrega del servicio.
+- Fisicos: instalaciones y equipos utilizados para soportar la entrega.
+5. Canales de distribución: Los medios a través de los
+cuales el servicio llega al cliente. Puede ser a través de
+plataformas en linea, en persona, centros de atención al
+cliente, etc.
+6. Interacción con el cliente: los puntos de contacto y la experiencia del cliente en su relación con el servicio. Esto incluye aspectos como atención al cliente, soporte técnico, interfaz de usuario (en servicios digitales).
+7. Evidencia fisica o tangibles: elementos que el cliente puede ver, tocar o experimentar y que refuerzan la calidad del servicio. Por ejemplo, en un hotel, esto podria incluir la limpieza y el ambiente
+8. Estándares de servicio y medición de rendimiento: los criterios o indicadores clave (KPls) que se utilizan para medir la eficacia y calidad del servicio. Esto incluye tiempos de respuesta, satisfacción del cliente, entre otros
+9. Gestión y soporte: los procesos y políticas detrás de la operación del servicio, que incluyen la capacitación del personal, la gestión de incidencias, el control de calidad, la mejora continua y la escalabilidad
+10. Costo y precio: el modelo financiero detrás del servicio. Cómo se fija el precio, cómo se generan ingresos y cómo se gestiona el costo operativo.
+
+# Tipos de modelos de servicios
+- Modelo de autoservicio
+- Modelo de servicio personalizado
+- Modelo de servicio bajo demanda (On-Demand)
+- Modelo de suscripción
+- Modelo de externalización de servicios (Outsourcing)
+- Modelo de servicios compartidos
+
+Autoservicio -> mäs inversión en tecnologia, menos en personal.
+Personalizado -> mäs inversi6n en talento humano calificado
+Bajo demanda -> costos variables segün uso
+Suscripción -> costos fijos, ingresos recurrentes.
+Outsourcing -> pago a un tercero segün SLA (acuerdos de servicio)
+Servicios compartidos - reducción de costos por economías de escala
+
+## Un modelo exitoso de suscripción
+La clave del éxito de Netflix fue la combinación de contenido exclusivo, una oferta global y una experiencia de usuario intuitiva.
+El modelo de suscripción genera ingresos recurrentes predecibles y permite a la empresa invertir en contenido original. diferenciándose de la competencia. Al eliminar la dependencia de la publicidad, Netflix se enfoca en mejorar la experiencia del usuario, lo que ha resultado en una alta tasa de retención
+"Netflix cuenta con mas de 230 millones de suscriptores en todo el mundo. El modelo de suscripción les ha permitido crecer exponencialmente y expandirse a nuevos mercados globales 
+Su enfoque en el contenido original y la personalización de la experiencia ha consolidado su liderazgo en la industria del entretenimiento.
+
+## Modelo de servicio futuro
+Estará impulsado por la innovación tecnológica y la experiencia del cliente. Se espera que la lA y la automatización avanzada desempeñen un papel aún más significativo, mejorando la eficiencia y permitiendo una personalización mas profunda
+Los modelos on-demand seguirán ganando popularidad, ya que los consumidores buscan cada vez mas servicios instantáneos y bajo demanda en lugar de compromisos a largo plazo
+Otro cambio esperado es la mayor integración de tecnologías de realidad aumentada (AR) y realidad virtual (VR), especialmente en sectores como la educación, el entretenimiento y la atención al cliente, ofreciendo experiencias inmersivas y enriquecidas. Además, el concepto de servicios basados en el bienestar y la salud mental crecerá a medida que los consumidores den prioridad a su bienestar en sus decisiones de consumo
+Los servicios basados en datos seguirán expandiéndose, permitiendo a las empresas tomar decisiones mas informadas y proactivas, optimizando tanto la experiencia del cliente como la eficiencia operativa
+
+Costear un modelo de servicid
+al cliente significa identificar todos los recursos y gastos que requiere implementarlo y mantenerlo, para luego compararlos con los beneficios que genera (satisfacción, retención y fidelización de clientes, aumento de ventas, reducción de quejas, etc.
+
+Una vez se tenga claro el modelo de servicio, se procede. Costear la estrategia de la siguiente manera:
+
+Siempre tienes que pagarlos
+
+1.Costos fijos
+Son los gue no cambian mes a mes, sin importar si atiendes a 10 o a 1.000 clientes
+Ejemplos: Sueldos del equipo de servicio al cliente, Alquiler de oficina, Licencias de software que pagas mensual o anual
+
+Si atiendes mäs clientes, estos suben
+2. Costos variables
+Cambian segün la cantidad de clientes atendidos o el volumen de trabajo
+Ejemplos:
+- Minutos de llamadas
+- Paquetes de WhatsApp Business
+- Outsourcing por número de casos atendidos
+- Bonos o descuentos entregados a clientes insatisfechos
+
+No siempre son mensuales, pero conviene presupuestarlos
+3. Costos de calidad
+Son las inversiones adicionales que haces para garantizar un buen servicio y mejorarlo en el tiempo
+Ejemplos:
+- Encuestas de satisfacción
+- Programas de formación extra para el equipo
+- Auditorias internas o externas de servicio
+
+Se consideran como "créditos" al costo porque compensan lo que inviertes
+4. Beneficios indirectos
+Aqui restas el "ahorro"o retorno que te da el buen servicio
+Por ejemplo:
+- Menos quejas o demandas (ahorro en gastos legales)
+- Reducción de clientes que se van (ahorras en buscar nuevos clientes)
+- Mayor fidelización (clientes repiten compras sin mayor esfuerzo de ventas)
+
+## Que son los PQRS
+
+Petición: Puede ser la solicitud de forma verbal o escrita donde se solicite a la empresa su
+intervención en un asunto puntual y concreto. La petición puede ser que realicen una acción o
+simplemente solicitar cierta información
+Queja: Es la inconformidad que presenta el usuario, ya sea de manera verbal o escrita, para
+mostrar su disgusto hacia cierto proceso, ejecutivo de atención o departamento de una empresa
+Reclamo: Es la demanda de un servicio que hace el cliente, ya sea de manera verbal o escrita de insatisfacción por el incumplimiento de un derecho que no se ha respetado o se ha visto amenazado, ocasionado por la mala prestación del servicio o fallas en el producto.
+Sugerencia: Cualquier expresión verbal o escrita de recomendación entregada por el cliente con el propósito de mejorar el servicio y/o los productos ofrecidos
+
+
+PQRS: Un indicador clave para el cumplimiento y la mejora continua
+Detección de riesgos: Los reclamos frecuentes pueden ser indicadores tempranos de fallos en productos, servicios o incluso en el comportamiento de ciertos agentes del sistema
+Reputación y fidelización: La forma en que una entidad gestiona un problema puede definir su reputación mas que el problema en si. Una buena atención transforma un error en una oportunidad de fidelización
+Cumplimiento normativo: En muchos países de América Latina los organismos reguladores exigen a las empresas contar con canales efectivos de atención al usuario, así como reportes periódicos sobre la cantidad y tipo de reclamos recibidos
+
+Pasos para desarrollar un buen sistema PQRS
+1. Determina el proceso general del sistema PQRS
+El primer paso consiste en realizar un mapa de acciones que tendrán lugar desde el momento en que recibes la PQRS, los procedimientos de investigación de las causas detrás de las mismas, los mecanismos de evaluación y las acciones para llegar a una solución de la problemática
+
+2. Define la estructura organizacional que atenderá tu  sistema de quejas
+En este paso deberás asignar los roles y responsabilidades que serán asignados para atender cada una de las peticiones, quejas reclamos, sugerencias que lleguen a tu empresa. Por ejemplo, quiénes serán los colaboradores designados para el tratamiento de la PQRS y en qué momento entran otras áreas como la legal o la gerencia general, las gerencias regionales, las gerencias de líneas de negocio o áreas de seguridad, medioambiente y calidad.
+
+3. Elige las mejores herramientas para atender las 
+PQRS
+Una vez que has evaluado las necesidades para implementar un sistema de PQRS de tu organización, es momento de adoptar herramientas que te ayuden a gestionar las peticiones, quejas, reclamos y sugerencias de forma exitosa para disminuir el riesgo de abandono del cliente.
+Por ejemplo, a través del uso de la encuesta podrás evaluar cuáles son las causas por las cuales un cliente no estaría dispuesto a recomendar tu producto o servicio, y con ello, desarrollar las mejores estrategias para superarlas
+
+4. Da seguimiento a las peticiones y quejas  del cliente
+Una vez que has recibido una PQRS, será importante dar seguimiento a la misma de acuerdo a los protocolos y líneas de acci6n establecidas, realizar una evaluación preliminar para saber si implicará acciones legales o no, recopilar los antecedentes realizar un registro formal y dar paso a las acciones correctivas para Llegar a la mejor solución.
+
