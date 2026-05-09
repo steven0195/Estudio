@@ -47,3 +47,28 @@ Forma de entrega
 • Cualquier copia de internet o de libro parcial o total y no referenciada correctamente de acuerdo con las normas APA, se evaluará como cero (00) y acarreará las sanciones establecidas en el Reglamento Académico Estudiantil.
 
 • La sumatoria de todos los valores máximos asignados a los criterios debe dar 50.
+
+
+El modelo que hemos adoptado parte de la base de los componentes que propone Sebeok, aunque no hablaremos de "fuente" y "destino", sino de primero y segundo interlocutor. No habría inconveniente en seguirles dando el nombre tradicional de emisor y receptor (o destinatario), aunque no son términos muy afortunados, pues restringen el sentido: asocian sólo la emisión y la recepción, respectivamente. Como se ilustra en la siguiente figura, además de los elementos que considera Sebeok, es necesario mencionar otros que, aunque se encuentran fuera del proceso, se complementan, suponen o implican: mundo referencial, estados cognoscitivos, propósito o intención, experiencias (información) y retroalimentación.
+
+```mermaid
+graph LR
+    subgraph "Componentes de un acto de comunicación"
+        A[Mundo Referencial] --> B(Experiencias)
+        B --> C{Código Canal}
+        C --> D((Mensaje percepción))
+        D -- intención --> E[Primer Interlocutor]
+        D -- Retroalimentación --> F[Segundo Interlocutor]
+        E -- Producción Comprensión --> G[Contextos Verbales]
+        F -- Comprensión Producción --> H[Contextos Extraverbales]
+        G --> E
+        H --> F
+        C --> E
+        C --> F
+
+        subgraph EstadosCognoscitivos
+            I[Estados Cognoscitivos] --> E
+            I --> F
+        end
+    end
+```
