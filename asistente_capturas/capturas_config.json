@@ -1,0 +1,6 @@
+{
+  "lmstudio_base_url": "http://localhost:1234/v1",
+  "lmstudio_model": "google/gemma-4-e2b",
+  "hotkey": "ctrl+shift+p",
+  "prompt": "Transcribe TODO el contenido visible de esta imagen a formato Markdown, preservando la estructura original con la mayor fidelidad posible: usa encabezados (#, ##, ###) para títulos y subtítulos, tablas Markdown si hay tablas, listas (- o 1.) si hay listas, y bloques de código ``` para código o fórmulas. No describas la imagen ni agregues comentarios propios: transcribe únicamente lo que está escrito o dibujado. Si una parte es ilegible, escribe [ilegible] en ese punto. Conserva el idioma original del texto."
+}
