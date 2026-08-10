@@ -1,10 +1,10 @@
 ---
-tipo: nota
+tipo: documento
 area: "Administracion de empresas"
 curso: "Formulación y evaluación de proyectos"
 periodo: "2026-2 T1"
 titulo: "ASPECTOS GENERALES DEL PROYECTO"
-origen: "captura de pantalla"
+origen: "capturas de pantalla"
 tags: []
 ---
 

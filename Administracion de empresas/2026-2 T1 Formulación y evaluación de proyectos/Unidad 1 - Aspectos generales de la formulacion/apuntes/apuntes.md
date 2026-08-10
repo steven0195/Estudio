@@ -10,4 +10,3 @@ tags: []
 
 # Aspectos generales de la formulación
 
-> Borrador vacío. Aquí van tus apuntes de síntesis de esta unidad (no el material crudo, eso vive en `../fuentes/`).
