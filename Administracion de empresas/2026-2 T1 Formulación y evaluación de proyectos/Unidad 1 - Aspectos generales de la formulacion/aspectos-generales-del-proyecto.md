@@ -12,7 +12,7 @@ tags: []
 
 > **Captura de pantalla** — 2026-08-07 20:26
 >
-> ![Captura](src/captura-20260807-202606.png)
+> ![Captura](../src/captura-20260807-202606.png)
 
 EVALUACIÓN DE PROYECTOS
 
@@ -37,7 +37,7 @@ Todos los proyectos tienen en común una serie de características:
 
 > **Captura de pantalla** — 2026-08-07 20:31
 >
-> ![Captura](src/captura-20260807-203146.png)
+> ![Captura](../src/captura-20260807-203146.png)
 
 Proyectos sociales. Son proyectos para lograr alguna obra que beneficie a la comunidad.
 
@@ -55,13 +55,13 @@ Proyectos de inversión. Están relacionadas con la empresa y la parte comercial
 
 > **Captura de pantalla** — 2026-08-07 20:32
 >
-> ![Captura](src/captura-20260807-203243.png)
+> ![Captura](../src/captura-20260807-203243.png)
 
 Proyectos empresariales: son aquellos proyectos que desarrollan las empresa e industrias ya existentes con el objetivo de buscar la prestación de un mejor servicio; ampliación del portafolio de productos. Generalmente estos proyectos se realizan con mejoramientos en cada uno de los procesos o departamentos de la empresa buscando competitividad y por supuesto una mayor rentabilidad.
 
 > **Captura de pantalla** — 2026-08-07 20:34
 >
-> ![Captura](src/captura-20260807-203406.png)
+> ![Captura](../src/captura-20260807-203406.png)
 
 ## 1.3 Etapas de un proyecto.
 Identificación de la idea de proyecto y análisis de pre-factibilidad
@@ -88,7 +88,7 @@ ernesi
 
 > **Captura de pantalla** — 2026-08-07 20:43
 >
-> ![Captura](src/captura-20260807-204349.png)
+> ![Captura](../src/captura-20260807-204349.png)
 
 Modelo o esquema propuesto 1. Proyecto público de educación
 
@@ -122,7 +122,7 @@ Arbol de Problemas
 
 > **Captura de pantalla** — 2026-08-07 20:46
 >
-> ![Captura](src/captura-20260807-204653.png)
+> ![Captura](../src/captura-20260807-204653.png)
 
 ### 1.4.2 Árbol de objetivos:
 
@@ -135,7 +135,7 @@ c. identificar los parámetros, que son aquellas causas del problema que no son 
 
 > **Captura de pantalla** — 2026-08-07 20:49
 >
-> ![Captura](src/captura-20260807-204931.png)
+> ![Captura](../src/captura-20260807-204931.png)
 
 #### Figura 3. Árbol de objetivos
 *   OBJETIVO CENTRAL O GENERAL
@@ -163,7 +163,7 @@ Fuente: (Formulacionyevaluacioncruno.wordpress.com, 2011)
 
 > **Captura de pantalla** — 2026-08-07 20:52
 >
-> ![Captura](src/captura-20260807-205243.png)
+> ![Captura](../src/captura-20260807-205243.png)
 
 ## 1.5 Indicadores de gestión en los proyectos
 
@@ -179,7 +179,7 @@ La medición del desempeño puede ser definida generalmente, como una serie de a
 
 > **Captura de pantalla** — 2026-08-07 20:54
 >
-> ![Captura](src/captura-20260807-205413.png)
+> ![Captura](../src/captura-20260807-205413.png)
 
 Entonces, ¿Por qué medir?
 
@@ -199,7 +199,7 @@ Entonces, ¿Por qué medir?
 
 > **Captura de pantalla** — 2026-08-07 20:54
 >
-> ![Captura](src/captura-20260807-205451.png)
+> ![Captura](../src/captura-20260807-205451.png)
 
 Atributos de los indicadores y tipos de indicadores
 
@@ -211,7 +211,7 @@ Cada medidor o indicador debe satisfacer los siguientes criterios o atributos:
 
 > **Captura de pantalla** — 2026-08-07 20:55
 >
-> ![Captura](src/captura-20260807-205549.png)
+> ![Captura](../src/captura-20260807-205549.png)
 
 ### 1.5.1 Tipos de indicadores
 
@@ -228,7 +228,7 @@ con base en que el cumplimiento tiene que ver con la conclusión de una tarea. L
 
 > **Captura de pantalla** — 2026-08-07 20:57
 >
-> ![Captura](src/captura-20260807-205706.png)
+> ![Captura](../src/captura-20260807-205706.png)
 
 Indicadores de evaluación: la evaluación tiene que ver con el rendimiento que se obtiene de una tarea, trabajo o proceso. Los indicadores de evaluación están relacionados con las razones y/o los métodos que ayudan a identificar nuestras fortalezas, debilidades y oportunidades de mejora. Ejemplo: evaluación del proceso de gestión de pedidos.
 
@@ -253,7 +253,7 @@ Podría decirse que el objetivo de los sistemas de medición es aportar a la emp
 
 > **Captura de pantalla** — 2026-08-07 20:59
 >
-> ![Captura](src/captura-20260807-205905.png)
+> ![Captura](../src/captura-20260807-205905.png)
 
 Tabla modelo para el seguimiento al desarrollo de un proyecto por medio de indicadores
 
@@ -283,20 +283,20 @@ Entre algunos ejemplos de indicadores se tienen:
 
 > **Captura de pantalla** — 2026-08-07 21:00
 >
-> ![Captura](src/captura-20260807-210011.png)
+> ![Captura](../src/captura-20260807-210011.png)
 
 ## 1.6 Ciclo de vida de un proyecto
 De acuerdo a lo consultado en la web ("Ecured.cu", 2007) su definición facilita el control sobre los tiempos en que es necesario aplicar recursos de todo tipo (personal, equipos, suministros, etc.) al proyecto. Si el proyecto
 
 > **Captura de pantalla** — 2026-08-07 21:01
 >
-> ![Captura](src/captura-20260807-210132.png)
+> ![Captura](../src/captura-20260807-210132.png)
 
 incluye subcontratación de partes a otras organizaciones, el control del trabajo subcontratado se facilita en la medida en que esas partes encajen bien en la estructura de las fases. El control de calidad también se ve facilitado si la separación entre fases se hace corresponder con puntos en los que ésta deba verificarse. penas
 
 > **Captura de pantalla** — 2026-08-07 21:02
 >
-> ![Captura](src/captura-20260807-210235.png)
+> ![Captura](../src/captura-20260807-210235.png)
 
 ### 1.6.1 Entre las fases principales están:
 Un proyecto no puede concebirse al margen del resto de las actividades que lleva a cabo la organización. Todas las actividades contribuyen a conseguir unos fines generales expresados en las estrategias de la organización. Por ello, el tipo de organización influye no sólo en los proyectos que se van a realizar sino también en la forma en que se realizan. Todo ello forma parte del contexto del proyecto. El conocimiento del contexto del proyecto es un elemento fundamental para asegurar el cumplimiento de sus objetivos.
@@ -312,7 +312,7 @@ Definición de los objetivos del proyecto y de los recursos necesarios para su e
 
 > **Captura de pantalla** — 2026-08-07 21:06
 >
-> ![Captura](src/captura-20260807-210619.png)
+> ![Captura](../src/captura-20260807-210619.png)
 
 #### Fase de control
 
@@ -333,7 +333,7 @@ En cada fase general de un modelo de ciclo de vida, se pueden establecer una ser
 
 > **Captura de pantalla** — 2026-08-07 21:15
 >
-> ![Captura](src/captura-20260807-211558.png)
+> ![Captura](../src/captura-20260807-211558.png)
 
 #### Fase de definición
 *   Estudio de viabilidad.
@@ -356,7 +356,7 @@ En cada fase general de un modelo de ciclo de vida, se pueden establecer una ser
 
 > **Captura de pantalla** — 2026-08-07 21:19
 >
-> ![Captura](src/captura-20260807-211937.png)
+> ![Captura](../src/captura-20260807-211937.png)
 
 Tipos de modelo de ciclo de vida
 
@@ -372,7 +372,7 @@ A menudo ocurre en desarrollo de productos, procesos o servicios con innovacione
 
 > **Captura de pantalla** — 2026-08-07 21:20
 >
-> ![Captura](src/captura-20260807-212047.png)
+> ![Captura](../src/captura-20260807-212047.png)
 
 #### Ciclo de vida en espiral
 
