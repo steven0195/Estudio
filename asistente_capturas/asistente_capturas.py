@@ -54,6 +54,8 @@ TIPO_POR_CARPETA = {"apuntes": "apunte", "fuentes": "fuente", "actividades": "ac
 DEFAULT_CONFIG = {
     "lmstudio_base_url": "http://localhost:1234/v1",
     "lmstudio_model": "google/gemma-4-e2b",
+    "lmstudio_model_texto": "qwen/qwen3.5-9b",
+    "lmstudio_model_embeddings": "text-embedding-nomic-embed-text-v1.5",
     "hotkey": "ctrl+shift+p",
     "prompt": (
         "Transcribe TODO el contenido visible de esta imagen a formato Markdown, "
@@ -63,6 +65,15 @@ DEFAULT_CONFIG = {
         "o fórmulas. No describas la imagen ni agregues comentarios propios: "
         "transcribe únicamente lo que está escrito o dibujado. Si una parte es "
         "ilegible, escribe [ilegible] en ese punto. Conserva el idioma original del texto."
+    ),
+    "prompt_descripcion_imagen": (
+        "Esta imagen aparece dentro de un documento académico o de estudio. "
+        "Descríbela de forma clara y completa para alguien que no puede verla: "
+        "si es un diagrama, mapa conceptual o flujo, enumera sus elementos/pasos y "
+        "cómo se conectan; si es una tabla o gráfico, describe los datos que "
+        "muestra; si es una foto o ilustración, describe qué se ve. No repitas "
+        "texto que ya esté transcrito en el documento, describe solo el "
+        "contenido visual. Sé conciso pero completo, en español."
     ),
 }
 
@@ -104,6 +115,10 @@ def slugify(texto):
     texto = unicodedata.normalize("NFKD", texto).encode("ascii", "ignore").decode("ascii")
     texto = re.sub(r"[^\w\s-]", "", texto).strip().lower()
     return re.sub(r"[\s_]+", "-", texto) or "sin-titulo"
+
+
+def quitar_frontmatter(texto):
+    return re.sub(r"^---\n.*?\n---\n", "", texto, count=1, flags=re.DOTALL).strip()
 
 
 # ---------------------------------------------------------------------------
@@ -181,6 +196,14 @@ def limpiar_markdown(texto):
     if len(partes) > 1:
         texto = partes[-1]
     texto = re.sub(r"<\|[^>]*\|>", "", texto).strip()
+
+    # Otros modelos (familia Qwen3, DeepSeek-R1) envuelven el razonamiento en
+    # <think>...</think> en vez del formato harmony. La etiqueta de apertura a
+    # veces la agrega el propio chat template del servidor y no se repite en la
+    # respuesta — así que basta con cortar todo lo que venga antes del ÚLTIMO
+    # </think>, exista o no un <think> de apertura visible.
+    if "</think>" in texto.lower():
+        texto = re.split(r"</think>", texto, flags=re.IGNORECASE)[-1].strip()
 
     if texto.startswith("```"):
         lineas = texto.split("\n")
@@ -421,7 +444,7 @@ def metadatos_desde_ruta(carpeta):
     return meta
 
 
-def construir_frontmatter(carpeta, titulo):
+def construir_frontmatter(carpeta, titulo, origen="captura de pantalla", campos_extra=None):
     meta = metadatos_desde_ruta(carpeta)
     campos = {"tipo": meta["tipo"], "area": meta["area"]}
     if "curso" in meta:
@@ -433,11 +456,15 @@ def construir_frontmatter(carpeta, titulo):
         campos["unidad"] = meta["unidad"]
         campos["tema"] = meta["tema"]
     campos["titulo"] = titulo
-    campos["origen"] = "captura de pantalla"
+    campos["origen"] = origen
+    if campos_extra:
+        campos.update(campos_extra)
 
     lineas = ["---"]
     for clave, valor in campos.items():
-        if isinstance(valor, str) and (" " in valor or ":" in valor):
+        if isinstance(valor, bool):
+            lineas.append(f"{clave}: {'true' if valor else 'false'}")  # YAML, no el "True" de Python
+        elif isinstance(valor, str) and (" " in valor or ":" in valor):
             lineas.append(f'{clave}: "{valor}"')
         else:
             lineas.append(f"{clave}: {valor}")

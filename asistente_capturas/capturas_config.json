@@ -1,6 +1,9 @@
 {
   "lmstudio_base_url": "http://localhost:1234/v1",
   "lmstudio_model": "google/gemma-4-e2b",
+  "lmstudio_model_texto": "qwen/qwen3.5-9b",
+  "lmstudio_model_embeddings": "text-embedding-nomic-embed-text-v1.5",
   "hotkey": "ctrl+shift+p",
-  "prompt": "Transcribe TODO el contenido visible de esta imagen a formato Markdown, preservando la estructura original con la mayor fidelidad posible: usa encabezados (#, ##, ###) para títulos y subtítulos, tablas Markdown si hay tablas, listas (- o 1.) si hay listas, y bloques de código ``` para código o fórmulas. No describas la imagen ni agregues comentarios propios: transcribe únicamente lo que está escrito o dibujado. Si una parte es ilegible, escribe [ilegible] en ese punto. Conserva el idioma original del texto."
+  "prompt": "Transcribe TODO el contenido visible de esta imagen a formato Markdown, preservando la estructura original con la mayor fidelidad posible: usa encabezados (#, ##, ###) para títulos y subtítulos, tablas Markdown si hay tablas, listas (- o 1.) si hay listas, y bloques de código ``` para código o fórmulas. No describas la imagen ni agregues comentarios propios: transcribe únicamente lo que está escrito o dibujado. Si una parte es ilegible, escribe [ilegible] en ese punto. Conserva el idioma original del texto.",
+  "prompt_descripcion_imagen": "Esta imagen aparece dentro de un documento académico o de estudio. Descríbela de forma clara y completa para alguien que no puede verla: si es un diagrama, mapa conceptual o flujo, enumera sus elementos/pasos y cómo se conectan; si es una tabla o gráfico, describe los datos que muestra; si es una foto o ilustración, describe qué se ve. No repitas texto que ya esté transcrito en el documento, describe solo el contenido visual. Sé conciso pero completo, en español."
 }

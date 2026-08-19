@@ -1,3 +1,17 @@
+---
+tipo: fuente
+area: "Administracion de empresas"
+curso: "Formulación y evaluación de proyectos"
+periodo: "2026-2 T1"
+unidad: 1
+tema: "Aspectos generales de la formulacion"
+titulo: "CD_FORMULACION Y EVALUACION DE PROYECTOS"
+origen: "transcripción automática de CD_FORMULACION Y EVALUACION DE PROYECTOS.docx"
+tags: []
+---
+
+# CD_FORMULACION Y EVALUACION DE PROYECTOS
+
 <table style="width:98%;">
 <colgroup>
 <col style="width: 97%" />
@@ -461,3 +475,4 @@ El formato F-SGC-365 Formato de Cierre de Curso posibilita el análisis, la refl
 </tr>
 </tbody>
 </table>
+

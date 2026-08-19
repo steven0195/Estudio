@@ -28,7 +28,7 @@ Todo `.md` con contenido real lleva frontmatter YAML con un campo `tipo`:
 - **`curso`** (en `curso.md`) — metadatos y vista general del curso completo: temario, notas, documentos generales. Es el punto de partida para orientarte antes de entrar al detalle de una unidad.
 - **`apunte`** — apuntes o notas de síntesis propia del estudiante sobre un tema puntual. Es la fuente de verdad más confiable para explicar algo en detalle: prioriza esto sobre `fuente` al responder preguntas de repaso.
 - **`fuente`** — material original (lecturas, diapositivas convertidas, transcripciones). Puede ser una conversión cruda de PDF/PPT sin mucha estructura; trátalo como referencia, no como resumen ya digerido. Si un `apunte` y una `fuente` se contradicen, dilo explícitamente en vez de mezclarlos.
-- **`actividad`** — enunciado y/o respuesta de un taller, evaluación o tarea ya entregada. No la presentes como si fuera una respuesta nueva tuya a menos que el usuario pida explícitamente ayuda para refutarla o mejorarla. Si el usuario pide "ayúdame a repasar la Unidad X", usa esto para generar preguntas de práctica, no para regenerar la tarea.
+- **`actividad`** — enunciado y/o respuesta de un taller, evaluación o tarea ya entregada. No la presentes como si fuera una respuesta nueva tuya a menos que el usuario pida explícitamente ayuda para refutarla o mejorarla. Si el usuario pide "ayúdame a repasar la Unidad X", usa esto para generar preguntas de práctica, no para regenerar la tarea. Excepción: si tiene `borrador_ia: true` en el frontmatter (generado por `solucionador_actividades.py`), es un borrador sin revisar, no una entrega real — puedes ayudar a mejorarlo o completarlo libremente.
 - **`nota`** — cualquier `.md` creado fuera de `apuntes/`, `fuentes/` o `actividades/` (p. ej. directo en la raíz de una unidad). Trátalo como contenido informal sin clasificar.
 
 Archivos vacíos con solo el frontmatter y una nota "Borrador vacío" son plantillas pendientes de llenar — no inventes contenido ahí salvo que el usuario pida explícitamente que redactes la síntesis.
@@ -61,9 +61,40 @@ pregunta cómo insertarla:
   ya es el apunte que querías, no solo una referencia).
 
 Y opcionalmente un encabezado propio (Enter para no ponerle ninguno).
-Se inicia con `start.bat` (raíz). Ver
-[asistente_capturas/LEEME_asistente_capturas.md](asistente_capturas/LEEME_asistente_capturas.md)
-para instalación y uso.
+Se inicia con `start.bat` (raíz).
+
+`asistente_capturas/transcriptor_documentos.py` hace lo mismo pero para
+documentos completos: convierte `.txt`, `.pdf`, `.docx` y `.pptx` a
+Markdown junto al original (`pandoc` para .docx/.pptx, PyMuPDF para .pdf).
+El texto se extrae tal cual, sin que una IA lo reescriba — la fidelidad es
+la prioridad, por eso es `fuente` y no un resumen ya digerido. Cada imagen
+o diagrama que encuentra se describe con el modelo de visión de LM Studio
+y esa descripción se inserta como cita junto a la imagen (igual formato que
+las capturas de pantalla) — así un modelo que solo lee texto también
+entiende qué muestran las ilustraciones. Uso: `python
+asistente_capturas/transcriptor_documentos.py "<archivo o carpeta>"`.
+
+`asistente_capturas/solucionador_actividades.py` genera un primer borrador
+resuelto de una actividad (`actividades/*.doc(x)/.pdf/...`, la transcribe
+sola si hace falta), **punto por punto**, usando como fuente PRINCIPAL los
+`.md` de la carpeta `fuentes/` de esa misma unidad (recuperados por RAG —
+`rag_fuentes.py` vectoriza `fuentes/` con el modelo de embeddings de LM
+Studio y busca por similitud, en vez de mandar todo el contenido de golpe),
+y el conocimiento general del modelo solo como respaldo para lo que no
+esté cubierto ahí. Cada punto de la actividad se resuelve por separado
+(con un resumen de los puntos anteriores para mantener coherencia), y al
+final un paso de auditoría revisa el borrador completo con ojo crítico
+(puntos faltantes, términos, inconsistencias, referencias) y agrega esa
+revisión como sección aparte. No es interactivo ni rápido — aceptable
+aquí, es para trabajos sin apuro, no para exámenes en vivo. El resultado
+se guarda como `<actividad>-borrador-ia.md`, **nunca sobrescribe ni se
+llama igual que el original**, y queda marcado con `borrador_ia: true` en
+el frontmatter — trátalo como una ayuda para revisar y ajustar, no como
+una entrega real. Uso: `python
+asistente_capturas/solucionador_actividades.py "<archivo de actividad>"`.
+
+Ver [asistente_capturas/LEEME_asistente_capturas.md](asistente_capturas/LEEME_asistente_capturas.md)
+para instalación y uso de los tres programas.
 
 ## Pendientes conocidos
 

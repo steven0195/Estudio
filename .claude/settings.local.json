@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c ' *)",
+      "Bash(python -m py_compile solucionador_actividades.py)",
+      "Bash(curl -s -m 60 http://localhost:1234/api/v1/chat -H \"Content-Type: application/json\" -d \"{\\\\\"model\\\\\": \\\\\"qwen/qwen3.5-9b\\\\\", \\\\\"input\\\\\": \\\\\"Responde solo con: OK\\\\\", \\\\\"reasoning\\\\\": \\\\\"off\\\\\", \\\\\"max_output_tokens\\\\\": 200}\")"
+    ]
+  }
+}
