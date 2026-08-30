@@ -5,15 +5,15 @@ Convierte .txt, .pdf, .docx y .pptx a Markdown. El texto se extrae tal cual
 (no lo reescribe ni resume una IA — fidelidad al original), y cada imagen o
 diagrama que encuentra se la muestra al modelo de visión local de LM Studio
 para que la describa; esa descripción se inserta como **cita** justo junto a
-la imagen (mismo formato que usa asistente_capturas.py), para que tanto una
-persona como un modelo que solo lea texto entiendan también qué muestran las
+la imagen (mismo formato que usa capturas.py), para que tanto una persona
+como un modelo que solo lea texto entiendan también qué muestran las
 ilustraciones, sin que la descripción se confunda con el texto original.
 
 Requisitos:
   - pandoc instalado y en el PATH (para .docx y .pptx).
   - pip install -r requirements.txt (agrega pymupdf, para .pdf).
   - LM Studio con un modelo de visión cargado y el servidor local activo
-    (usa el mismo capturas_config.json que asistente_capturas.py).
+    (usa el mismo config.json que el resto de los programas de esta carpeta).
 
 Uso:
   python transcriptor_documentos.py "<archivo>"
@@ -34,7 +34,7 @@ import requests
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPT_DIR))
-from asistente_capturas import (  # noqa: E402
+from nucleo import (  # noqa: E402
     REPO_ROOT,
     cargar_config,
     citar_bloque,

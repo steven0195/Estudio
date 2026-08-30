@@ -27,7 +27,7 @@ import requests
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPT_DIR))
-from asistente_capturas import quitar_frontmatter  # noqa: E402
+from nucleo import quitar_frontmatter  # noqa: E402
 
 TAMANO_FRAGMENTO = 1500  # caracteres
 SOLAPE = 200

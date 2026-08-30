@@ -21,6 +21,18 @@ Este repositorio es una base de conocimiento personal de estudio. Contiene dos �
 
 `curso.md` es el punto de partida de cada curso: resumen, temario, notas generales. No hace falta una carpeta aparte para eso — se edita como cualquier `.md`, sección por sección (ver "Asistente de capturas" más abajo).
 
+`asistente_estudio/nueva_unidad.py` (sin dependencias) genera este esqueleto
+automáticamente en vez de armarlo a mano: crea `apuntes/`, `fuentes/`,
+`actividades/` y un `apuntes.md` en blanco con el frontmatter correcto. Si la
+ruta es una unidad nueva dentro de un curso, además crea `curso.md` (si el
+curso tampoco existía) o enlaza la unidad en la sección "## Unidades" de un
+`curso.md` ya existente, sin tocar el resto del archivo. Es seguro volver a
+correrlo sobre algo que ya existe (no sobrescribe ni duplica). Uso: `python
+asistente_estudio/nueva_unidad.py "<ruta de la nueva unidad o tema>"`, p. ej.
+`python asistente_estudio/nueva_unidad.py "Administracion de empresas/2026-1
+T1 Gerencia del servicio/Unidad 3 - Herramientas para gerenciar el
+servicio"`. También disponible como opción 4 de `start.bat` (raíz).
+
 ## Cómo interpretar cada tipo de archivo
 
 Todo `.md` con contenido real lleva frontmatter YAML con un campo `tipo`:
@@ -40,17 +52,25 @@ Archivos vacíos con solo el frontmatter y una nota "Borrador vacío" son planti
 - Si el usuario pide crear una nota nueva, sigue el formato de `1 Ecuaciones.md` (Ciencias Básicas, Unidad 1) como referencia de estilo: encabezados jerárquicos, tablas para comparar conceptos, ejemplos resueltos paso a paso, resumen al final.
 - Los nombres de carpeta usan `Unidad N - Tema` (con espacio y guion, no guion bajo). Mantén esa convención si creas unidades nuevas.
 
-## Asistente de capturas
+## Asistente de estudio
 
-`asistente_capturas/` captura pantallazos con un atajo de teclado y los
-transcribe a Markdown con un modelo de visión local en LM Studio. Deja
-navegar el repo carpeta por carpeta hasta **cualquier `.md` existente**
-(incluido `curso.md`, que vive suelto en la raíz del curso, no dentro de una
-carpeta `apuntes/fuentes/actividades`) o crear uno nuevo ahí mismo. Si el
-archivo elegido ya tiene secciones (`##`, `###`, ...), pregunta en cuál
-insertar la captura — para poder alimentar, por ejemplo, la sección
-"Notas" de un `curso.md` sin tocar el resto de su estructura. Al final
-pregunta cómo insertarla:
+`asistente_estudio/` agrupa las herramientas que se apoyan en LM Studio (u
+otros scripts sin dependencias) para ayudar con el repo. Se inician desde
+`start.bat` (raíz) — un menú con las cuatro opciones — o cada una por su
+cuenta desde la terminal. `nucleo.py`, dentro de esa carpeta, tiene las
+funciones y la configuración (`config.json`) que comparten los demás; no se
+corre directo.
+
+**Capturas de pantalla** (`asistente_estudio/capturas.py`, opción 1 de
+`start.bat`) — atajo de teclado que recorta una región de la pantalla y la
+transcribe a Markdown con un modelo de visión local. Deja navegar el repo
+carpeta por carpeta hasta **cualquier `.md` existente** (incluido `curso.md`,
+que vive suelto en la raíz del curso, no dentro de una carpeta
+`apuntes/fuentes/actividades`) o crear uno nuevo ahí mismo. Si el archivo
+elegido ya tiene secciones (`##`, `###`, ...), pregunta en cuál insertar la
+captura — para poder alimentar, por ejemplo, la sección "Notas" de un
+`curso.md` sin tocar el resto de su estructura. Al final pregunta cómo
+insertarla:
 
 - **Nota completa** — imagen y texto transcrito, todo como **cita**
   (`>`): material auxiliar/de referencia (equivalente a `fuente`),
@@ -61,40 +81,44 @@ pregunta cómo insertarla:
   ya es el apunte que querías, no solo una referencia).
 
 Y opcionalmente un encabezado propio (Enter para no ponerle ninguno).
-Se inicia con `start.bat` (raíz).
 
-`asistente_capturas/transcriptor_documentos.py` hace lo mismo pero para
-documentos completos: convierte `.txt`, `.pdf`, `.docx` y `.pptx` a
-Markdown junto al original (`pandoc` para .docx/.pptx, PyMuPDF para .pdf).
-El texto se extrae tal cual, sin que una IA lo reescriba — la fidelidad es
-la prioridad, por eso es `fuente` y no un resumen ya digerido. Cada imagen
-o diagrama que encuentra se describe con el modelo de visión de LM Studio
-y esa descripción se inserta como cita junto a la imagen (igual formato que
-las capturas de pantalla) — así un modelo que solo lee texto también
-entiende qué muestran las ilustraciones. Uso: `python
-asistente_capturas/transcriptor_documentos.py "<archivo o carpeta>"`.
+**Transcriptor de documentos** (`asistente_estudio/transcriptor_documentos.py`,
+opción 2 de `start.bat`) — hace lo mismo pero para documentos completos:
+convierte `.txt`, `.pdf`, `.docx`, `.pptx` y `.doc` a Markdown junto al
+original (`pandoc` para .docx/.pptx, PyMuPDF para .pdf). El texto se extrae
+tal cual, sin que una IA lo reescriba — la fidelidad es la prioridad, por eso
+es `fuente` y no un resumen ya digerido. Cada imagen o diagrama que encuentra
+se describe con el modelo de visión de LM Studio y esa descripción se
+inserta como cita junto a la imagen (igual formato que las capturas de
+pantalla) — así un modelo que solo lee texto también entiende qué muestran
+las ilustraciones. Uso: `python
+asistente_estudio/transcriptor_documentos.py "<archivo o carpeta>"`.
 
-`asistente_capturas/solucionador_actividades.py` genera un primer borrador
-resuelto de una actividad (`actividades/*.doc(x)/.pdf/...`, la transcribe
-sola si hace falta), **punto por punto**, usando como fuente PRINCIPAL los
-`.md` de la carpeta `fuentes/` de esa misma unidad (recuperados por RAG —
+**Solucionador de actividades** (`asistente_estudio/solucionador_actividades.py`,
+opción 3 de `start.bat`) — genera un primer borrador resuelto de una
+actividad (`actividades/*.doc(x)/.pdf/...`, la transcribe sola si hace
+falta), **punto por punto**, usando como fuente PRINCIPAL los `.md` de la
+carpeta `fuentes/` de esa misma unidad (recuperados por RAG —
 `rag_fuentes.py` vectoriza `fuentes/` con el modelo de embeddings de LM
 Studio y busca por similitud, en vez de mandar todo el contenido de golpe),
-y el conocimiento general del modelo solo como respaldo para lo que no
-esté cubierto ahí. Cada punto de la actividad se resuelve por separado
-(con un resumen de los puntos anteriores para mantener coherencia), y al
-final un paso de auditoría revisa el borrador completo con ojo crítico
-(puntos faltantes, términos, inconsistencias, referencias) y agrega esa
-revisión como sección aparte. No es interactivo ni rápido — aceptable
-aquí, es para trabajos sin apuro, no para exámenes en vivo. El resultado
-se guarda como `<actividad>-borrador-ia.md`, **nunca sobrescribe ni se
-llama igual que el original**, y queda marcado con `borrador_ia: true` en
-el frontmatter — trátalo como una ayuda para revisar y ajustar, no como
-una entrega real. Uso: `python
-asistente_capturas/solucionador_actividades.py "<archivo de actividad>"`.
+y el conocimiento general del modelo solo como respaldo para lo que no esté
+cubierto ahí. Cada punto de la actividad se resuelve por separado (con un
+resumen de los puntos anteriores para mantener coherencia), y al final un
+paso de auditoría revisa el borrador completo con ojo crítico (puntos
+faltantes, términos, inconsistencias, referencias) y agrega esa revisión
+como sección aparte. No es interactivo ni rápido — aceptable aquí, es para
+trabajos sin apuro, no para exámenes en vivo. El resultado se guarda como
+`<actividad>-borrador-ia.md`, **nunca sobrescribe ni se llama igual que el
+original**, y queda marcado con `borrador_ia: true` en el frontmatter —
+trátalo como una ayuda para revisar y ajustar, no como una entrega real.
+Uso: `python asistente_estudio/solucionador_actividades.py "<archivo de
+actividad>"`.
 
-Ver [asistente_capturas/LEEME_asistente_capturas.md](asistente_capturas/LEEME_asistente_capturas.md)
-para instalación y uso de los tres programas.
+**Nueva unidad** (`asistente_estudio/nueva_unidad.py`, opción 4 de
+`start.bat`) — ver la sección "Estructura" más arriba.
+
+Ver [asistente_estudio/LEEME.md](asistente_estudio/LEEME.md) para
+instalación y uso de los cuatro programas.
 
 ## Pendientes conocidos
 

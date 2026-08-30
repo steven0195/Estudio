@@ -1,12 +1,19 @@
-# Asistente de capturas de estudio
+# Asistente de estudio
 
-Tres programas que comparten la misma configuración de LM Studio:
+Cuatro programas que comparten la misma configuración de LM Studio:
 
-- **`asistente_capturas.py`** — captura pantallazos con un atajo de teclado.
+- **`capturas.py`** — captura pantallazos con un atajo de teclado.
 - **`transcriptor_documentos.py`** — convierte documentos (.txt, .pdf, .docx, .pptx, .doc) enteros a Markdown.
 - **`solucionador_actividades.py`** — genera un primer borrador resuelto de una actividad, punto por punto, usando `fuentes/` como material de referencia (RAG) y con una auditoría crítica final.
+- **`nueva_unidad.py`** — crea el esqueleto de carpetas y archivos base de una unidad o tema nuevo, para no armarlo a mano cada vez.
 
-(`rag_fuentes.py` no se corre directo — es un módulo de apoyo con la lógica de vectorización/búsqueda que usa el solucionador de actividades, pensado para reutilizarse en más herramientas más adelante.)
+(`nucleo.py` no se corre directo — funciones y configuración compartidas por
+los cuatro programas. `rag_fuentes.py` tampoco — es la lógica de
+vectorización/búsqueda que usa el solucionador de actividades, pensada para
+reutilizarse en más herramientas más adelante.)
+
+Todo esto también se puede usar desde **`start.bat`** (en la raíz del repo):
+un menú que cubre los cuatro programas sin tener que escribir comandos.
 
 ## 1. Requisitos previos
 
@@ -19,29 +26,30 @@ Tres programas que comparten la misma configuración de LM Studio:
 
 ## 2. Instalación
 
-Desde la raíz del repo:
+Desde la raíz del repo (o la opción 5 de `start.bat`):
 
 ```bash
-pip install -r asistente_capturas/requirements.txt
+pip install -r asistente_estudio/requirements.txt
 ```
 
 ## 3. Configuración
 
-Edita `asistente_capturas/capturas_config.json` si necesitas cambiar algo:
+Edita `asistente_estudio/config.json` si necesitas cambiar algo:
 
 - `lmstudio_model`: el nombre exacto del modelo tal como aparece en LM Studio (pestaña "Developer" o `http://localhost:1234/v1/models`). Debe soportar imágenes. Lo usan las capturas y el transcriptor.
 - `lmstudio_model_texto`: el modelo de texto que usa `solucionador_actividades.py` para redactar (no necesita soportar imágenes). Por defecto `qwen/qwen3.5-9b`.
+- `lmstudio_model_embeddings`: el modelo de embeddings para el RAG del solucionador de actividades. Por defecto `text-embedding-nomic-embed-text-v1.5`.
 - `lmstudio_base_url`: cambia el puerto si configuraste otro en LM Studio.
 - `hotkey`: el atajo de teclado global, por defecto `ctrl+shift+p`.
 - `prompt`: la instrucción que se le da al modelo para transcribir la imagen; puedes ajustarla si el resultado no te convence.
 - `prompt_descripcion_imagen`: la instrucción para describir imágenes dentro de documentos (transcriptor).
 
-## 4. Uso: capturas de pantalla (`asistente_capturas.py`)
+## 4. Uso: capturas de pantalla (`capturas.py`)
 
-Doble clic en **`start.bat`** (en la raíz del repo), o desde la raíz:
+Opción 1 de **`start.bat`** (en la raíz del repo), o desde la raíz:
 
 ```bash
-python asistente_capturas/asistente_capturas.py
+python asistente_estudio/capturas.py
 ```
 
 Deja esa ventana de terminal abierta (puedes minimizarla). Cuando quieras capturar algo:
@@ -54,7 +62,7 @@ Deja esa ventana de terminal abierta (puedes minimizarla). Cuando quieras captur
    - Navegas el repo como un explorador de carpetas: en cada carpeta ves tanto sus subcarpetas como sus archivos `.md` sueltos — por ejemplo, dentro de un curso puedes entrar a "Unidad 1" **o** elegir directamente `curso.md`. Sigue hasta donde quieras guardar: área → curso/tema → unidad → `apuntes/`, `fuentes/` o `actividades/` (o quédate en un nivel más alto si el archivo que buscas está ahí).
    - Elige un `.md` existente (te muestra su título y fecha de edición) o **"Crear un archivo nuevo aquí"** (te pide un título).
    - Si el archivo elegido ya tiene secciones (`##`, `###`...), te pregunta en cuál insertar la captura — o "al final del archivo". Así puedes alimentar, por ejemplo, la sección "Notas" de un `curso.md` sin tocar el resto de su estructura.
-5. Guarda la imagen en `<carpeta-del-archivo>/src/captura-<fecha>.png` y el texto transcrito dentro del `.md` elegido, en la sección que hayas indicado. Recuerda ese archivo como "el de la última vez" para el punto 4 en la próxima captura (se guarda en `capturas_state.json`, junto al script).
+5. Guarda la imagen en `<carpeta-del-archivo>/src/captura-<fecha>.png` y el texto transcrito dentro del `.md` elegido, en la sección que hayas indicado. Recuerda ese archivo como "el de la última vez" para el punto 4 en la próxima captura (se guarda en `estado.json`, junto al script).
 
 La captura (imagen + transcripción) siempre se inserta como **cita** (`>`), nunca como encabezado ni como texto corrido — así queda claro que es material de referencia/auxiliar y no se confunde con tus apuntes o la prosa del archivo:
 
@@ -73,7 +81,7 @@ Para salir, `Ctrl+C` en la terminal.
 ### Notas y límites (capturas de pantalla)
 
 - La selección de región solo cubre el monitor principal si usas varios monitores.
-- El atajo es global: si otra aplicación ya usa `Ctrl+Shift+P`, cámbialo en `capturas_config.json`.
+- El atajo es global: si otra aplicación ya usa `Ctrl+Shift+P`, cámbialo en `config.json`.
 - Si LM Studio no responde (servidor apagado, modelo sin visión), el programa igual guarda la imagen y crea/añade el bloque con un aviso para que completes la transcripción a mano.
 
 ## 5. Uso: transcriptor de documentos (`transcriptor_documentos.py`)
@@ -88,12 +96,12 @@ un modelo que solo lea texto entiendan también qué muestran las
 ilustraciones sin perder de vista que es una descripción generada, no el
 texto original.
 
-Desde la raíz del repo:
+Opción 2 de `start.bat`, o desde la raíz:
 
 ```bash
-python asistente_capturas/transcriptor_documentos.py "<archivo>"
-python asistente_capturas/transcriptor_documentos.py "<carpeta>"           # convierte todo lo soportado ahí
-python asistente_capturas/transcriptor_documentos.py "<carpeta>" --forzar  # re-convierte aunque ya exista el .md
+python asistente_estudio/transcriptor_documentos.py "<archivo>"
+python asistente_estudio/transcriptor_documentos.py "<carpeta>"           # convierte todo lo soportado ahí
+python asistente_estudio/transcriptor_documentos.py "<carpeta>" --forzar  # re-convierte aunque ya exista el .md
 ```
 
 Formatos soportados: `.txt`, `.pdf`, `.docx`, `.pptx`, `.doc`. Genera `<nombre>.md`
@@ -139,9 +147,11 @@ priorizando el material de `fuentes/` de la misma unidad sobre el
 conocimiento general del modelo, y termina con una **auditoría crítica**
 del resultado completo. No es interactivo — se corre una vez y espera:
 
+Opción 3 de `start.bat`, o desde la raíz:
+
 ```bash
-python asistente_capturas/solucionador_actividades.py "<archivo de actividad>"
-python asistente_capturas/solucionador_actividades.py "<archivo de actividad>" --fuentes "<otra carpeta>"
+python asistente_estudio/solucionador_actividades.py "<archivo de actividad>"
+python asistente_estudio/solucionador_actividades.py "<archivo de actividad>" --fuentes "<otra carpeta>"
 ```
 
 Flujo:
@@ -159,6 +169,31 @@ Flujo:
 - Resolver cada punto y auditar el borrador sí usan razonamiento (más lento, pero mejor calidad) — si tu modelo es muy verboso pensando, los `max_tokens` de esos pasos son altos a propósito (6.000–10.000); si aun así una respuesta sale cortada a mitad de frase, es la señal de subirlos todavía más en el código.
 - La coherencia entre puntos depende de que el resumen de "lo ya resuelto" que se pasa a cada punto siguiente sea suficiente — en actividades con muchísimos puntos, ese contexto se acota (1.500 caracteres por punto anterior) para no volver a desbordar el contexto.
 - El auditor no es infalible ni corrige nada automáticamente: solo señala qué mirar. Sigue siendo trabajo tuyo revisar el borrador, completar datos que falten (nombres del equipo, fechas) y ajustarlo antes de entregar.
+
+## 7. Uso: nueva unidad (`nueva_unidad.py`)
+
+Crea el esqueleto de una unidad de curso (o tema de `Desarrollo/`) nueva:
+las carpetas `apuntes/`, `fuentes/`, `actividades/`, con un `apuntes.md` en
+blanco ya con el frontmatter correcto — sin dependencias externas (no
+necesita `pip install` ni LM Studio corriendo).
+
+Opción 4 de `start.bat`, o desde la raíz:
+
+```bash
+python asistente_estudio/nueva_unidad.py "<ruta de la nueva unidad o tema>"
+```
+
+Ejemplos:
+
+```bash
+python asistente_estudio/nueva_unidad.py "Administracion de empresas/2026-1 T1 Gerencia del servicio/Unidad 3 - Herramientas para gerenciar el servicio"
+python asistente_estudio/nueva_unidad.py "Desarrollo/Docker"
+```
+
+Si la ruta es una unidad nueva dentro de un curso: crea también `curso.md`
+si el curso todavía no existe, o enlaza la unidad en la sección
+"## Unidades" de un `curso.md` ya existente sin tocar el resto. Es seguro
+volver a correrlo sobre algo que ya existe — no sobrescribe ni duplica.
 
 ## Notas generales de LM Studio
 
