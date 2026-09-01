@@ -5,7 +5,15 @@ blanco ya con el frontmatter correcto según dónde quede ubicada — el mismo
 molde que ya usa el resto del repo, para no tener que armarlo a mano cada
 vez que arranca una unidad.
 
-Si la ruta indicada es una "Unidad N - Tema" dentro de un curso:
+Sin argumentos, navega el repo por menú numerado — área → curso/tema —
+igual que el resto de las herramientas, en vez de tener que escribir la
+ruta completa a mano. Si el curso elegido ya tiene unidades ("Unidad 1 - ...",
+"Unidad 2 - ..."), detecta el siguiente número automáticamente y solo te
+pide el nombre que va después del prefijo: si ya existe "Unidad 1 - Aspectos
+generales de la formulacion", la próxima queda ofrecida como "Unidad 2 - ",
+tú solo escribes lo que sigue.
+
+Si la ruta resulta ser una "Unidad N - Tema" dentro de un curso:
   - Si el curso todavía no existe (ni su `curso.md`), lo crea también.
   - Si el curso ya existe y su `curso.md` tiene una sección "## Unidades",
     agrega ahí el enlace a la unidad nueva sin tocar el resto del archivo.
@@ -17,9 +25,15 @@ No trae contenido real — es solo el molde vacío, igual que los demás
 estándar de Python).
 
 Uso (desde la raíz del repo):
-  python asistente_estudio/nueva_unidad.py "<ruta de la nueva unidad o tema, relativa a la raíz del repo>"
+  python asistente_estudio/nueva_unidad.py
+      Navega por menú: área → curso/tema → (si aplica) nombre de la unidad
+      siguiente, con el prefijo "Unidad N - " ya puesto.
+
+  python asistente_estudio/nueva_unidad.py "<ruta completa de la nueva unidad o tema>"
+      Modo directo, sin menús — igual que antes.
 
 Ejemplos:
+  python asistente_estudio/nueva_unidad.py
   python asistente_estudio/nueva_unidad.py "Administracion de empresas/2026-1 T1 Gerencia del servicio/Unidad 3 - Herramientas para gerenciar el servicio"
   python asistente_estudio/nueva_unidad.py "Desarrollo/Docker"
 """
@@ -28,10 +42,103 @@ import re
 import sys
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parent.parent  # este script vive en asistente_estudio/, un nivel bajo la raíz
+SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent  # este script vive en asistente_estudio/, un nivel bajo la raíz
 PATRON_UNIDAD = re.compile(r"^Unidad (\d+) - (.+)$")
 PATRON_CURSO = re.compile(r"^(\d{4}-\d T\d) (.+)$")
 
+NUEVO = object()
+
+
+# ---------------------------------------------------------------------------
+# Navegación por menú (área -> curso/tema -> nombre de la unidad siguiente)
+# ---------------------------------------------------------------------------
+
+def listar_subcarpetas(path):
+    if not path.exists():
+        return []
+    return sorted(
+        [
+            p
+            for p in path.iterdir()
+            if p.is_dir() and not p.name.startswith(".") and not p.name.startswith("__")
+        ],
+        key=lambda p: p.name.lower(),
+    )
+
+
+def elegir_de_lista(titulo, opciones, mostrar=lambda o: o.name):
+    print(f"\n{titulo}")
+    for i, op in enumerate(opciones, 1):
+        print(f"  {i}. {mostrar(op)}")
+    print("  0. Cancelar")
+    while True:
+        raw = input("Elige un número: ").strip()
+        if raw == "0":
+            return None
+        if raw.isdigit() and 1 <= int(raw) <= len(opciones):
+            return opciones[int(raw) - 1]
+        print("  Opción inválida, intenta de nuevo.")
+
+
+def siguiente_numero_unidad(carpeta_curso):
+    numeros = []
+    for p in listar_subcarpetas(carpeta_curso):
+        m = PATRON_UNIDAD.match(p.name)
+        if m:
+            numeros.append(int(m.group(1)))
+    return max(numeros, default=0) + 1
+
+
+def elegir_contenedor():
+    """Navega Área -> Curso/Tema (existente o nuevo). Devuelve la carpeta elegida, o None si se cancela."""
+    areas = [a for a in listar_subcarpetas(REPO_ROOT) if a.name != SCRIPT_DIR.name]
+    while True:
+        area = elegir_de_lista("¿En qué área quieres crear la unidad o tema?", areas)
+        if area is None:
+            return None
+
+        opciones = listar_subcarpetas(area) + [NUEVO]
+        seleccion = elegir_de_lista(
+            f"¿En qué curso/tema de '{area.name}'?",
+            opciones,
+            mostrar=lambda o: "+ Crear un curso/tema nuevo aquí" if o is NUEVO else o.name,
+        )
+        if seleccion is None:
+            continue  # vuelve a elegir área
+        if seleccion is NUEVO:
+            print(
+                "\nNombre de la carpeta nueva. Si es un curso formal, usa el formato "
+                "'AAAA-N TN Nombre del curso' (p. ej. '2026-1 T1 Nombre del curso') "
+                "para que quede numerada por unidades; si es un tema libre, cualquier nombre sirve."
+            )
+            nombre = input("Nombre: ").strip()
+            if not nombre:
+                continue
+            return area / nombre
+        return seleccion
+
+
+def resolver_ruta_final(contenedor):
+    """Si `contenedor` es un curso (nombre con patrón de periodo), pide solo el
+    nombre de la unidad y le antepone el prefijo "Unidad N - " ya calculado.
+    Si no, `contenedor` mismo es la carpeta final (temas tipo Desarrollo/Tema,
+    sin subdivisión en unidades)."""
+    if not PATRON_CURSO.match(contenedor.name):
+        return contenedor
+
+    siguiente = siguiente_numero_unidad(contenedor)
+    prefijo = f"Unidad {siguiente} - "
+    print(f"\nPróxima unidad de '{contenedor.name}': {prefijo}...")
+    tema = input(f"Nombre de la unidad (lo que va después de '{prefijo}'): ").strip()
+    if not tema:
+        return None
+    return contenedor / f"{prefijo}{tema}"
+
+
+# ---------------------------------------------------------------------------
+# Frontmatter y creación del esqueleto
+# ---------------------------------------------------------------------------
 
 def construir_frontmatter(campos):
     lineas = ["---"]
@@ -142,15 +249,7 @@ def enlazar_en_curso_md(ruta_curso_md, nombre_unidad):
     print(f"  Enlazada en: {ruta_curso_md.relative_to(REPO_ROOT)}")
 
 
-def main():
-    if len(sys.argv) < 2:
-        print('Uso: python asistente_estudio/nueva_unidad.py "<ruta de la nueva unidad o tema>"')
-        sys.exit(1)
-
-    ruta_arg = Path(sys.argv[1])
-    ruta_completa = ruta_arg if ruta_arg.is_absolute() else REPO_ROOT / ruta_arg
-    ruta_completa = Path(str(ruta_completa).rstrip("/\\"))
-
+def crear_esqueleto(ruta_completa):
     try:
         partes = ruta_completa.relative_to(REPO_ROOT).parts
     except ValueError:
@@ -163,7 +262,7 @@ def main():
     meta = metadatos_desde_ruta(partes)
     es_unidad = PATRON_UNIDAD.match(partes[-1]) is not None
 
-    print(f"Creando esqueleto en: {ruta_completa.relative_to(REPO_ROOT)}")
+    print(f"\nCreando esqueleto en: {ruta_completa.relative_to(REPO_ROOT)}")
 
     if es_unidad and "curso" in meta:
         carpeta_curso = ruta_completa.parent
@@ -181,6 +280,30 @@ def main():
     crear_apuntes_md(ruta_completa, meta)
 
     print("\nListo.")
+
+
+def ruta_desde_argumento(arg):
+    ruta_arg = Path(arg)
+    ruta_completa = ruta_arg if ruta_arg.is_absolute() else REPO_ROOT / ruta_arg
+    return Path(str(ruta_completa).rstrip("/\\"))
+
+
+def main():
+    if len(sys.argv) >= 2:
+        crear_esqueleto(ruta_desde_argumento(sys.argv[1]))
+        return
+
+    contenedor = elegir_contenedor()
+    if contenedor is None:
+        print("Cancelado.")
+        return
+
+    ruta_completa = resolver_ruta_final(contenedor)
+    if ruta_completa is None:
+        print("Cancelado.")
+        return
+
+    crear_esqueleto(ruta_completa)
 
 
 if __name__ == "__main__":

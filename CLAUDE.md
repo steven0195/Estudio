@@ -27,11 +27,24 @@ automáticamente en vez de armarlo a mano: crea `apuntes/`, `fuentes/`,
 ruta es una unidad nueva dentro de un curso, además crea `curso.md` (si el
 curso tampoco existía) o enlaza la unidad en la sección "## Unidades" de un
 `curso.md` ya existente, sin tocar el resto del archivo. Es seguro volver a
-correrlo sobre algo que ya existe (no sobrescribe ni duplica). Uso: `python
+correrlo sobre algo que ya existe (no sobrescribe ni duplica).
+
+Corriéndolo sin argumentos (`python asistente_estudio/nueva_unidad.py`, u
+opción 4 de `start.bat`) abre un navegador interactivo igual al de
+`capturas.py`: primero el área (`Administracion de empresas` / `Desarrollo`),
+luego el curso o tema dentro de esa área (con opción de crear uno nuevo ahí
+mismo). Si el contenedor elegido es un curso con formato `<Periodo> <Curso>`,
+detecta automáticamente el siguiente número consecutivo de unidad revisando
+las carpetas `Unidad N - ...` que ya existan y solo pregunta qué va después
+del prefijo (p. ej. si ya existe "Unidad 1", propone "Unidad 2 - " y el
+usuario solo escribe el tema); dejar ese nombre en blanco cancela sin crear
+nada. Si el contenedor no sigue ese patrón (temas planos de `Desarrollo`, sin
+periodo ni numeración), el esqueleto se crea directo ahí, sin prefijo de
+unidad. También admite el modo directo por línea de comandos de antes: `python
 asistente_estudio/nueva_unidad.py "<ruta de la nueva unidad o tema>"`, p. ej.
 `python asistente_estudio/nueva_unidad.py "Administracion de empresas/2026-1
 T1 Gerencia del servicio/Unidad 3 - Herramientas para gerenciar el
-servicio"`. También disponible como opción 4 de `start.bat` (raíz).
+servicio"`.
 
 ## Cómo interpretar cada tipo de archivo
 

@@ -9,11 +9,14 @@ if errorlevel 1 (
     exit /b 1
 )
 
+set "atajo=?"
+for /f "usebackq delims=" %%A in (`python -c "import json; print(json.load(open('asistente_estudio/config.json', encoding='utf-8')).get('hotkey', '?'))" 2^>nul`) do set "atajo=%%A"
+
 :menu
 cls
 echo Asistente de estudio
 echo =====================
-echo   1. Capturas de pantalla (atajo de teclado + LM Studio)
+echo   1. Capturas de pantalla (atajo: %atajo%)
 echo   2. Transcriptor de documentos (.txt/.pdf/.docx/.pptx/.doc a Markdown)
 echo   3. Solucionador de actividades (borrador punto por punto, con RAG)
 echo   4. Nueva unidad (crea el esqueleto de carpetas y archivos base)
@@ -56,10 +59,7 @@ pause
 goto menu
 
 :nueva_unidad
-set "ruta="
-set /p ruta="Ruta de la nueva unidad o tema (relativa a la raiz del repo): "
-if "%ruta%"=="" goto menu
-python "asistente_estudio\nueva_unidad.py" "%ruta%"
+python "asistente_estudio\nueva_unidad.py"
 pause
 goto menu
 

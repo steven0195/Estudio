@@ -180,20 +180,59 @@ necesita `pip install` ni LM Studio corriendo).
 Opción 4 de `start.bat`, o desde la raíz:
 
 ```bash
-python asistente_estudio/nueva_unidad.py "<ruta de la nueva unidad o tema>"
+python asistente_estudio/nueva_unidad.py
 ```
 
-Ejemplos:
+Sin argumentos abre un navegador interactivo (igual estilo que el de
+`capturas.py`, todo por menú numerado, `0` cancela):
+
+1. **Área**: `Administracion de empresas` o `Desarrollo`.
+2. **Curso/tema** dentro de esa área: eliges uno existente de la lista, o
+   **"+ Crear un curso/tema nuevo aquí"** para escribir el nombre de uno que
+   todavía no existe.
+3. Si el contenedor elegido es un curso con formato `<Periodo> <Curso>` (p. ej.
+   `2026-1 T1 Gerencia del servicio`), el programa revisa qué carpetas
+   `Unidad N - ...` ya tiene y **propone automáticamente el siguiente número**
+   ("Próxima unidad: Unidad 3 - ..."); solo te pide escribir lo que va
+   después del guion. Dejar ese nombre en blanco cancela sin crear nada.
+   Si el contenedor no sigue ese patrón (temas planos de `Desarrollo/`, sin
+   periodo ni numeración de unidad), el esqueleto se crea directo ahí, sin
+   pedir número.
+
+Ejemplo de una corrida típica:
+
+```text
+¿En qué área quieres crear la unidad o tema?
+  1. Administracion de empresas
+  2. Desarrollo
+  0. Cancelar
+Elige un número: 1
+¿En qué curso/tema de 'Administracion de empresas'?
+  1. 2026-1 T1 Gerencia del servicio
+  2. + Crear un curso/tema nuevo aquí
+  0. Cancelar
+Elige un número: 1
+Próxima unidad de '2026-1 T1 Gerencia del servicio': Unidad 3 - ...
+Nombre de la unidad (lo que va después de 'Unidad 3 - '): Herramientas para gerenciar el servicio
+```
+
+También sigue funcionando el modo directo por línea de comandos de antes,
+útil para scripts o para repetir una ruta exacta sin navegar el menú:
+
+```bash
+python asistente_estudio/nueva_unidad.py "<ruta de la nueva unidad o tema>"
+```
 
 ```bash
 python asistente_estudio/nueva_unidad.py "Administracion de empresas/2026-1 T1 Gerencia del servicio/Unidad 3 - Herramientas para gerenciar el servicio"
 python asistente_estudio/nueva_unidad.py "Desarrollo/Docker"
 ```
 
-Si la ruta es una unidad nueva dentro de un curso: crea también `curso.md`
-si el curso todavía no existe, o enlaza la unidad en la sección
-"## Unidades" de un `curso.md` ya existente sin tocar el resto. Es seguro
-volver a correrlo sobre algo que ya existe — no sobrescribe ni duplica.
+En ambos modos: si la ruta es una unidad nueva dentro de un curso, crea
+también `curso.md` si el curso todavía no existe, o enlaza la unidad en la
+sección "## Unidades" de un `curso.md` ya existente sin tocar el resto. Es
+seguro volver a correrlo sobre algo que ya existe — no sobrescribe ni
+duplica.
 
 ## Notas generales de LM Studio
 

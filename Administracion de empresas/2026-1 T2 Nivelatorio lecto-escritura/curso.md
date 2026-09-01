@@ -16,7 +16,6 @@ tags: []
 
 - [Unidad 1 - Comunicacion y retorica](<Unidad 1 - Comunicacion y retorica>)
 - [Unidad 2 - Ortografia y puntuacion](<Unidad 2 - Ortografia y puntuacion>)
-
 ## Documentos generales
 
 Ver `fuentes/` en la raíz del curso (claves de éxito, instrucciones, carta descriptiva, plan de actividades docente).
