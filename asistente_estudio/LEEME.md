@@ -4,7 +4,7 @@ Cuatro programas que comparten la misma configuración de LM Studio:
 
 - **`capturas.py`** — captura pantallazos con un atajo de teclado.
 - **`transcriptor_documentos.py`** — convierte documentos (.txt, .pdf, .docx, .pptx, .doc) enteros a Markdown.
-- **`solucionador_actividades.py`** — genera un primer borrador resuelto de una actividad, punto por punto, usando `fuentes/` como material de referencia (RAG) y con una auditoría crítica final.
+- **`solucionador_actividades.py`** — genera un primer borrador resuelto de una actividad, punto por punto, usando **todo el material del curso** (`curso.md` + `fuentes/` y `apuntes/` de todas sus unidades) como referencia (RAG) y con una auditoría crítica final.
 - **`nueva_unidad.py`** — crea el esqueleto de carpetas y archivos base de una unidad o tema nuevo, para no armarlo a mano cada vez.
 
 (`nucleo.py` no se corre directo — funciones y configuración compartidas por
@@ -143,9 +143,10 @@ imágenes entre sí).
 ## 6. Uso: solucionador de actividades (`solucionador_actividades.py`)
 
 Genera un primer borrador resuelto de una actividad, **punto por punto**,
-priorizando el material de `fuentes/` de la misma unidad sobre el
-conocimiento general del modelo, y termina con una **auditoría crítica**
-del resultado completo. No es interactivo — se corre una vez y espera:
+priorizando **todo el material del curso completo** — no solo el de la
+unidad donde vive la actividad — sobre el conocimiento general del modelo,
+y termina con una **auditoría crítica** del resultado completo. No es
+interactivo — se corre una vez y espera:
 
 Opción 3 de `start.bat`, o desde la raíz:
 
@@ -157,17 +158,23 @@ python asistente_estudio/solucionador_actividades.py "<archivo de actividad>" --
 Flujo:
 
 1. Si la actividad no es `.md` todavía (p. ej. `.doc`/`.docx`/`.pdf`), la transcribe primero (mismo camino que `transcriptor_documentos.py`).
-2. **Vectoriza `fuentes/`** una sola vez (embeddings de LM Studio + similitud de coseno, ver `rag_fuentes.py`) — se cachea en `fuentes/.rag_cache.json`, así que las siguientes actividades de la misma unidad no vuelven a vectorizar.
-3. **Divide la actividad en sus puntos individuales** (p. ej. "1. Definir el problema", "2. Diseñar el árbol de objetivos"...).
-4. **Resuelve cada punto por separado**: para cada uno, busca solo los fragmentos de `fuentes/` más relevantes para ESE punto (no el documento completo) y lo redacta con atención completa — evitando tanto desbordar el contexto del modelo como que las respuestas queden a medias por competir entre sí en un solo prompt gigante. Cada punto recibe además un resumen de lo ya resuelto en los puntos anteriores, para mantener coherencia (mismo caso/empresa/datos en todo el documento).
-5. **Audita el borrador completo** con un último paso crítico: busca puntos faltantes o a medias, errores de terminología, afirmaciones sin sustento, inconsistencias entre puntos, falta de referencias. Esa revisión se agrega como sección aparte al final del archivo, no mezclada con las respuestas.
-6. Guarda el resultado como `<actividad>-borrador-ia.md` en la misma carpeta `actividades/` — nunca sobrescribe el original ni se llama igual, y queda marcado `borrador_ia: true` en el frontmatter.
+2. **Detecta el curso completo**: sube desde la actividad buscando un `curso.md` en algún ancestro. Si lo encuentra (estructura `<Periodo> <Curso>/Unidad N - Tema/actividades/...`), indexa `curso.md` más `fuentes/` y `apuntes/` de **todas** las unidades de ese curso — no solo la unidad de la actividad. Si no lo encuentra (p. ej. un tema plano de `Desarrollo/`, sin `curso.md`), usa solo la `fuentes/` de esa misma carpeta, como antes. `--fuentes "<carpeta>"` fuerza una carpeta específica y se salta esta detección.
+3. **Vectoriza** cada carpeta de material una sola vez (embeddings de LM Studio + similitud de coseno, ver `rag_fuentes.py`) — se cachea por carpeta, en su propio `<carpeta>/.rag_cache.json`, así que solo se revectoriza lo que cambió desde la última corrida. La primera vez que se resuelve una actividad de un curso con varias unidades puede tardar bastante (se está vectorizando todo el curso); las siguientes actividades del mismo curso reaprovechan casi todo ese caché.
+4. **Divide la actividad en sus puntos individuales** (p. ej. "1. Definir el problema", "2. Diseñar el árbol de objetivos"...).
+5. **Resuelve cada punto por separado**: para cada uno, busca los fragmentos más relevantes para ESE punto (no el documento completo) y lo redacta con atención completa — evitando tanto desbordar el contexto del modelo como que las respuestas queden a medias por competir entre sí en un solo prompt gigante. La búsqueda es en tres niveles de prioridad: primero el material de la MISMA unidad de la actividad (ahí suele vivir el caso específico), luego un complemento chico de `curso.md` (temario general) y otro de las demás unidades — estos dos últimos siempre acotados y claramente etiquetados como "material general de otra unidad", para que un ejercicio distinto con su propia empresa ficticia no termine reemplazando al caso real. Cada punto recibe además un resumen de lo ya resuelto en los puntos anteriores para mantener coherencia, y el **Punto 1 se pasa siempre completo y por separado** (no solo como resumen) a todos los puntos siguientes, marcado como "decisión base no negociable" — sin esto, un punto posterior puede "olvidar" qué alternativa se eligió en el Punto 1 y desarrollarse sobre una alternativa distinta simplemente porque el material recuperado para ese punto habla más de otra opción.
+6. **Audita el borrador completo** con un último paso crítico: busca puntos faltantes o a medias, cifras inventadas o inconsistentes entre puntos, fórmulas descritas en vez de aplicadas con números, decisiones tomadas sin comparar alternativas.
+7. **Corrige** cada punto a partir de las observaciones que el auditor hizo específicamente sobre él (más las generales de todo el documento) — no es un resumen de cambios, es el reemplazo final de ese punto, con el mismo material y la misma "decisión base" del Punto 1 a la mano.
+8. **Verifica de nuevo** el borrador ya corregido con una segunda auditoría — lo que quede ahí suele ser lo que de verdad requiere revisión humana (cifras que no cuadran entre secciones, fechas/nombres reales, negociaciones con terceros), no errores de fondo como los que las pasadas anteriores ya corrigen.
+9. Guarda el resultado como `<actividad>-borrador-ia.md` en la misma carpeta `actividades/` — nunca sobrescribe el original ni se llama igual, y queda marcado `borrador_ia: true` en el frontmatter (el campo `origen` deja explícito si se usó el curso completo o solo una carpeta puntual).
+
+Si una respuesta individual sale vacía (típico en puntos con mucho cálculo — presupuestos, WACC — donde el modelo agota su presupuesto de tokens "pensando" antes de escribir la respuesta final), se reintenta automáticamente una vez con el doble de `max_tokens` en vez de dejar esa sección en blanco en el documento.
 
 ### Notas y límites (solucionador de actividades)
 
 - Usa `lmstudio_model_texto` para redactar y `lmstudio_model_embeddings` para el RAG (no el modelo de visión). Las llamadas de texto van por la **API nativa de LM Studio** (`/api/v1/chat`, no la compatible con OpenAI), que permite apagar el razonamiento por completo (`reasoning: "off"`) para tareas simples como dividir la actividad en puntos — sin esto, algunos modelos razonadores locales (probado con Qwen3) pueden quedarse dando vueltas "pensando" sin llegar nunca a una respuesta final limpia, incluso con `max_tokens` generosos.
 - Resolver cada punto y auditar el borrador sí usan razonamiento (más lento, pero mejor calidad) — si tu modelo es muy verboso pensando, los `max_tokens` de esos pasos son altos a propósito (6.000–10.000); si aun así una respuesta sale cortada a mitad de frase, es la señal de subirlos todavía más en el código.
 - La coherencia entre puntos depende de que el resumen de "lo ya resuelto" que se pasa a cada punto siguiente sea suficiente — en actividades con muchísimos puntos, ese contexto se acota (1.500 caracteres por punto anterior) para no volver a desbordar el contexto.
+- Indexar un curso completo (varias unidades) es más lento que indexar solo una unidad, tanto en la vectorización inicial como en cada búsqueda por punto (hay más fragmentos entre los que buscar). Es una decisión deliberada de priorizar cobertura del material sobre velocidad — si en algún caso puntual se prefiere lo rápido de antes (solo la unidad), usa `--fuentes "<ruta a esa unidad>/fuentes"`.
 - El auditor no es infalible ni corrige nada automáticamente: solo señala qué mirar. Sigue siendo trabajo tuyo revisar el borrador, completar datos que falten (nombres del equipo, fechas) y ajustarlo antes de entregar.
 
 ## 7. Uso: nueva unidad (`nueva_unidad.py`)

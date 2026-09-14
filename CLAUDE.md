@@ -110,22 +110,30 @@ asistente_estudio/transcriptor_documentos.py "<archivo o carpeta>"`.
 **Solucionador de actividades** (`asistente_estudio/solucionador_actividades.py`,
 opción 3 de `start.bat`) — genera un primer borrador resuelto de una
 actividad (`actividades/*.doc(x)/.pdf/...`, la transcribe sola si hace
-falta), **punto por punto**, usando como fuente PRINCIPAL los `.md` de la
-carpeta `fuentes/` de esa misma unidad (recuperados por RAG —
-`rag_fuentes.py` vectoriza `fuentes/` con el modelo de embeddings de LM
-Studio y busca por similitud, en vez de mandar todo el contenido de golpe),
-y el conocimiento general del modelo solo como respaldo para lo que no esté
-cubierto ahí. Cada punto de la actividad se resuelve por separado (con un
-resumen de los puntos anteriores para mantener coherencia), y al final un
+falta), **punto por punto**, usando como fuente PRINCIPAL **todo el material
+del curso**, no solo el de la unidad donde vive la actividad: `curso.md` más
+`fuentes/` y `apuntes/` de **todas** las unidades del curso (detecta la
+carpeta del curso subiendo desde la actividad hasta encontrar un `curso.md`;
+si la actividad no está dentro de un curso con `curso.md` — p. ej. un tema
+plano de `Desarrollo/` — usa solo la `fuentes/` de esa carpeta). Todo eso se
+recupera por RAG (`rag_fuentes.py` vectoriza cada carpeta con el modelo de
+embeddings de LM Studio, cachea por carpeta en su propio `.rag_cache.json`,
+y busca por similitud en vez de mandar todo el contenido de golpe), y el
+conocimiento general del modelo solo se usa como respaldo para lo que no
+esté cubierto ahí. Cada punto de la actividad se resuelve por separado (con
+un resumen de los puntos anteriores para mantener coherencia), y al final un
 paso de auditoría revisa el borrador completo con ojo crítico (puntos
 faltantes, términos, inconsistencias, referencias) y agrega esa revisión
-como sección aparte. No es interactivo ni rápido — aceptable aquí, es para
-trabajos sin apuro, no para exámenes en vivo. El resultado se guarda como
+como sección aparte. No es interactivo ni rápido — indexar un curso completo
+la primera vez puede tardar bastante (se cachea por carpeta para las
+siguientes actividades), y es aceptable porque es para trabajos sin apuro,
+no para exámenes en vivo. El resultado se guarda como
 `<actividad>-borrador-ia.md`, **nunca sobrescribe ni se llama igual que el
 original**, y queda marcado con `borrador_ia: true` en el frontmatter —
 trátalo como una ayuda para revisar y ajustar, no como una entrega real.
 Uso: `python asistente_estudio/solucionador_actividades.py "<archivo de
-actividad>"`.
+actividad>"` (o `--fuentes "<carpeta>"` para forzar una sola carpeta en vez
+de todo el curso).
 
 **Nueva unidad** (`asistente_estudio/nueva_unidad.py`, opción 4 de
 `start.bat`) — ver la sección "Estructura" más arriba.

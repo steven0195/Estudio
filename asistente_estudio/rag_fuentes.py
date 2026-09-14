@@ -69,23 +69,15 @@ def _huella_fragmentos(fragmentos):
     return hashlib.md5(contenido.encode("utf-8")).hexdigest()
 
 
-def indexar_fuentes(carpeta_fuentes, cfg, avisar=print):
-    """Devuelve una lista de fragmentos con su embedding ya calculado (de caché
-    si nada cambió, o vectorizando de nuevo si es la primera vez o los .md
-    de la carpeta cambiaron)."""
-    if not carpeta_fuentes.exists():
-        return []
-
-    archivos = sorted(carpeta_fuentes.glob("*.md"))
-    fragmentos = []
-    for archivo in archivos:
-        texto = quitar_frontmatter(archivo.read_text(encoding="utf-8"))
-        fragmentos.extend(dividir_en_fragmentos(archivo.name, texto))
-
+def _vectorizar_con_cache(fragmentos, ruta_cache, cfg, avisar, descripcion):
+    """Le asigna a cada fragmento su `embedding` (clave "embedding"), de
+    caché si `ruta_cache` existe y coincide en huella y cantidad, o
+    vectorizando de nuevo si no. Devuelve la misma lista, ya completa —
+    cualquier fragmento que pase por aquí queda con su embedding asignado,
+    nunca a medias."""
     if not fragmentos:
-        return []
+        return fragmentos
 
-    ruta_cache = carpeta_fuentes / ".rag_cache.json"
     huella = _huella_fragmentos(fragmentos)
     if ruta_cache.exists():
         try:
@@ -93,12 +85,12 @@ def indexar_fuentes(carpeta_fuentes, cfg, avisar=print):
             if cache.get("huella") == huella and len(cache.get("embeddings", [])) == len(fragmentos):
                 for frag, emb in zip(fragmentos, cache["embeddings"]):
                     frag["embedding"] = emb
-                avisar(f"Índice de fuentes/ cargado de caché ({len(fragmentos)} fragmentos, {len(archivos)} archivo(s)).")
+                avisar(f"  Índice de {descripcion} cargado de caché ({len(fragmentos)} fragmentos).")
                 return fragmentos
         except (json.JSONDecodeError, KeyError):
             pass
 
-    avisar(f"Vectorizando {len(fragmentos)} fragmentos de {len(archivos)} archivo(s) en fuentes/ (se cachea para la próxima vez)...")
+    avisar(f"  Vectorizando {len(fragmentos)} fragmentos de {descripcion} (se cachea para la próxima vez)...")
     embeddings = obtener_embeddings([f["texto"] for f in fragmentos], cfg)
     for frag, emb in zip(fragmentos, embeddings):
         frag["embedding"] = emb
@@ -106,6 +98,69 @@ def indexar_fuentes(carpeta_fuentes, cfg, avisar=print):
         ruta_cache.write_text(json.dumps({"huella": huella, "embeddings": embeddings}), encoding="utf-8")
     except OSError:
         pass
+    return fragmentos
+
+
+def indexar_fuentes(carpeta_fuentes, cfg, avisar=print, raiz_etiquetas=None):
+    """Devuelve una lista de fragmentos con su embedding ya calculado (de caché
+    si nada cambió, o vectorizando de nuevo si es la primera vez o los .md
+    de la carpeta cambiaron).
+
+    `raiz_etiquetas`, si se da, hace que cada fragmento se etiquete con su
+    ruta relativa a esa raíz (p. ej. "Unidad 2 - .../fuentes/archivo.md") en
+    vez de solo el nombre del archivo — útil cuando se combinan fragmentos de
+    varias carpetas (varias unidades) y archivos de distintas unidades
+    podrían llamarse igual (p. ej. "apuntes.md" en cada unidad)."""
+    if not carpeta_fuentes.exists():
+        return []
+
+    archivos = sorted(carpeta_fuentes.glob("*.md"))
+    fragmentos = []
+    for archivo in archivos:
+        # .as_posix(): siempre "/" como separador, incluso en Windows (donde
+        # relative_to() por defecto usa "\") — así el resto del código puede
+        # comparar/filtrar estas etiquetas por prefijo sin depender del SO.
+        etiqueta = archivo.relative_to(raiz_etiquetas).as_posix() if raiz_etiquetas else archivo.name
+        texto = quitar_frontmatter(archivo.read_text(encoding="utf-8"))
+        fragmentos.extend(dividir_en_fragmentos(etiqueta, texto))
+
+    if not fragmentos:
+        return []
+
+    ruta_cache = carpeta_fuentes / ".rag_cache.json"
+    descripcion = f"{carpeta_fuentes.name}/ ({len(archivos)} archivo(s))"
+    return _vectorizar_con_cache(fragmentos, ruta_cache, cfg, avisar, descripcion)
+
+
+def indexar_curso(carpeta_curso, cfg, avisar=print):
+    """Vectoriza TODO el material de referencia de un curso completo, no solo
+    el de una unidad: `curso.md` (temario y notas generales) más `fuentes/` y
+    `apuntes/` de CADA unidad (`<carpeta_curso>/Unidad N - Tema/...`).
+
+    Reutiliza indexar_fuentes()/_vectorizar_con_cache() por carpeta (y para
+    curso.md), así que cada carpeta mantiene su propio archivo de caché y
+    solo se re-vectoriza lo que de verdad cambió de una corrida a la
+    siguiente — el costo de indexar el curso completo se paga una vez (puede
+    tardar, sobre todo la primera corrida) y las siguientes actividades de
+    ese mismo curso reutilizan el caché."""
+    fragmentos = []
+
+    curso_md = carpeta_curso / "curso.md"
+    if curso_md.exists():
+        texto = quitar_frontmatter(curso_md.read_text(encoding="utf-8"))
+        fragmentos_curso = dividir_en_fragmentos("curso.md", texto)
+        ruta_cache = carpeta_curso / ".rag_cache_curso.json"
+        fragmentos.extend(_vectorizar_con_cache(fragmentos_curso, ruta_cache, cfg, avisar, "curso.md"))
+
+    carpetas_material = sorted(
+        carpeta
+        for patron in ("fuentes", "apuntes")
+        for carpeta in carpeta_curso.glob(f"*/{patron}")
+        if carpeta.is_dir()
+    )
+    for carpeta in carpetas_material:
+        fragmentos.extend(indexar_fuentes(carpeta, cfg, avisar=avisar, raiz_etiquetas=carpeta_curso))
+
     return fragmentos
 
 

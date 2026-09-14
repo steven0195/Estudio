@@ -16,6 +16,7 @@ tags: []
 
 - [Unidad 1 - Aspectos generales de la formulacion](<Unidad 1 - Aspectos generales de la formulacion>)
 - [Unidad 2 - ESTUDIO DE MERCADO DEL PROYECTO](<Unidad 2 - ESTUDIO DE MERCADO DEL PROYECTO>)
+- [Unidad 3 - ESTUDIO FINANCIERO Y FINANCIAMIENTO](<Unidad 3 - ESTUDIO FINANCIERO Y FINANCIAMIENTO>)
 ---
 # Presentación del curso
 
