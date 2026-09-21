@@ -1,6 +1,0 @@
-keyboard
-requests
-Pillow
-pymupdf
-numpy
-pywin32  # opcional: solo lo usa transcriptor_documentos.py para convertir .doc antiguos (requiere Word instalado)

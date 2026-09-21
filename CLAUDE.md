@@ -21,7 +21,7 @@ Este repositorio es una base de conocimiento personal de estudio. Contiene dos �
 
 `curso.md` es el punto de partida de cada curso: resumen, temario, notas generales. No hace falta una carpeta aparte para eso — se edita como cualquier `.md`, sección por sección (ver "Asistente de capturas" más abajo).
 
-`asistente_estudio/nueva_unidad.py` (sin dependencias) genera este esqueleto
+`D:/Repos/General/proyectos/asistente_estudio/nueva_unidad.py` (sin dependencias) genera este esqueleto
 automáticamente en vez de armarlo a mano: crea `apuntes/`, `fuentes/`,
 `actividades/` y un `apuntes.md` en blanco con el frontmatter correcto. Si la
 ruta es una unidad nueva dentro de un curso, además crea `curso.md` (si el
@@ -29,7 +29,7 @@ curso tampoco existía) o enlaza la unidad en la sección "## Unidades" de un
 `curso.md` ya existente, sin tocar el resto del archivo. Es seguro volver a
 correrlo sobre algo que ya existe (no sobrescribe ni duplica).
 
-Corriéndolo sin argumentos (`python asistente_estudio/nueva_unidad.py`, u
+Corriéndolo sin argumentos (`python D:/Repos/General/proyectos/asistente_estudio/nueva_unidad.py`, u
 opción 4 de `start.bat`) abre un navegador interactivo igual al de
 `capturas.py`: primero el área (`Administracion de empresas` / `Desarrollo`),
 luego el curso o tema dentro de esa área (con opción de crear uno nuevo ahí
@@ -41,8 +41,8 @@ usuario solo escribe el tema); dejar ese nombre en blanco cancela sin crear
 nada. Si el contenedor no sigue ese patrón (temas planos de `Desarrollo`, sin
 periodo ni numeración), el esqueleto se crea directo ahí, sin prefijo de
 unidad. También admite el modo directo por línea de comandos de antes: `python
-asistente_estudio/nueva_unidad.py "<ruta de la nueva unidad o tema>"`, p. ej.
-`python asistente_estudio/nueva_unidad.py "Administracion de empresas/2026-1
+D:/Repos/General/proyectos/asistente_estudio/nueva_unidad.py "<ruta de la nueva unidad o tema>"`, p. ej.
+`python D:/Repos/General/proyectos/asistente_estudio/nueva_unidad.py "Administracion de empresas/2026-1
 T1 Gerencia del servicio/Unidad 3 - Herramientas para gerenciar el
 servicio"`.
 
@@ -67,14 +67,14 @@ Archivos vacíos con solo el frontmatter y una nota "Borrador vacío" son planti
 
 ## Asistente de estudio
 
-`asistente_estudio/` agrupa las herramientas que se apoyan en LM Studio (u
+`D:/Repos/General/proyectos/asistente_estudio/` agrupa las herramientas que se apoyan en LM Studio (u
 otros scripts sin dependencias) para ayudar con el repo. Se inician desde
 `start.bat` (raíz) — un menú con las cuatro opciones — o cada una por su
 cuenta desde la terminal. `nucleo.py`, dentro de esa carpeta, tiene las
 funciones y la configuración (`config.json`) que comparten los demás; no se
 corre directo.
 
-**Capturas de pantalla** (`asistente_estudio/capturas.py`, opción 1 de
+**Capturas de pantalla** (`D:/Repos/General/proyectos/asistente_estudio/capturas.py`, opción 1 de
 `start.bat`) — atajo de teclado que recorta una región de la pantalla y la
 transcribe a Markdown con un modelo de visión local. Deja navegar el repo
 carpeta por carpeta hasta **cualquier `.md` existente** (incluido `curso.md`,
@@ -95,7 +95,7 @@ insertarla:
 
 Y opcionalmente un encabezado propio (Enter para no ponerle ninguno).
 
-**Transcriptor de documentos** (`asistente_estudio/transcriptor_documentos.py`,
+**Transcriptor de documentos** (`D:/Repos/General/proyectos/asistente_estudio/transcriptor_documentos.py`,
 opción 2 de `start.bat`) — hace lo mismo pero para documentos completos:
 convierte `.txt`, `.pdf`, `.docx`, `.pptx` y `.doc` a Markdown junto al
 original (`pandoc` para .docx/.pptx, PyMuPDF para .pdf). El texto se extrae
@@ -105,9 +105,9 @@ se describe con el modelo de visión de LM Studio y esa descripción se
 inserta como cita junto a la imagen (igual formato que las capturas de
 pantalla) — así un modelo que solo lee texto también entiende qué muestran
 las ilustraciones. Uso: `python
-asistente_estudio/transcriptor_documentos.py "<archivo o carpeta>"`.
+D:/Repos/General/proyectos/asistente_estudio/transcriptor_documentos.py "<archivo o carpeta>"`.
 
-**Solucionador de actividades** (`asistente_estudio/solucionador_actividades.py`,
+**Solucionador de actividades** (`D:/Repos/General/proyectos/asistente_estudio/solucionador_actividades.py`,
 opción 3 de `start.bat`) — genera un primer borrador resuelto de una
 actividad (`actividades/*.doc(x)/.pdf/...`, la transcribe sola si hace
 falta), **punto por punto**, usando como fuente PRINCIPAL **todo el material
@@ -131,14 +131,14 @@ no para exámenes en vivo. El resultado se guarda como
 `<actividad>-borrador-ia.md`, **nunca sobrescribe ni se llama igual que el
 original**, y queda marcado con `borrador_ia: true` en el frontmatter —
 trátalo como una ayuda para revisar y ajustar, no como una entrega real.
-Uso: `python asistente_estudio/solucionador_actividades.py "<archivo de
+Uso: `python D:/Repos/General/proyectos/asistente_estudio/solucionador_actividades.py "<archivo de
 actividad>"` (o `--fuentes "<carpeta>"` para forzar una sola carpeta en vez
 de todo el curso).
 
-**Nueva unidad** (`asistente_estudio/nueva_unidad.py`, opción 4 de
+**Nueva unidad** (`D:/Repos/General/proyectos/asistente_estudio/nueva_unidad.py`, opción 4 de
 `start.bat`) — ver la sección "Estructura" más arriba.
 
-Ver [asistente_estudio/LEEME.md](asistente_estudio/LEEME.md) para
+Ver [D:/Repos/General/proyectos/asistente_estudio/LEEME.md](D:/Repos/General/proyectos/asistente_estudio/LEEME.md) para
 instalación y uso de los cuatro programas.
 
 ## Pendientes conocidos

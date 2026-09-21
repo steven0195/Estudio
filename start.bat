@@ -1,6 +1,7 @@
 @echo off
 setlocal
 cd /d "%~dp0"
+set "ASISTENTE=D:\Repos\General\proyectos\asistente_estudio"
 
 where python >nul 2>nul
 if errorlevel 1 (
@@ -10,7 +11,7 @@ if errorlevel 1 (
 )
 
 set "atajo=?"
-for /f "usebackq delims=" %%A in (`python -c "import json; print(json.load(open('asistente_estudio/config.json', encoding='utf-8')).get('hotkey', '?'))" 2^>nul`) do set "atajo=%%A"
+for /f "usebackq delims=" %%A in (`python -c "import json; print(json.load(open(r'%ASISTENTE%/config.json', encoding='utf-8')).get('hotkey', '?'))" 2^>nul`) do set "atajo=%%A"
 
 :menu
 cls
@@ -38,7 +39,7 @@ pause
 goto menu
 
 :capturas
-python "asistente_estudio\capturas.py"
+python "%ASISTENTE%\capturas.py"
 pause
 goto menu
 
@@ -46,7 +47,7 @@ goto menu
 set "ruta="
 set /p ruta="Ruta del archivo o carpeta a transcribir: "
 if "%ruta%"=="" goto menu
-python "asistente_estudio\transcriptor_documentos.py" "%ruta%"
+python "%ASISTENTE%\transcriptor_documentos.py" "%ruta%"
 pause
 goto menu
 
@@ -54,17 +55,17 @@ goto menu
 set "ruta="
 set /p ruta="Ruta del archivo de actividad: "
 if "%ruta%"=="" goto menu
-python "asistente_estudio\solucionador_actividades.py" "%ruta%"
+python "%ASISTENTE%\solucionador_actividades.py" "%ruta%"
 pause
 goto menu
 
 :nueva_unidad
-python "asistente_estudio\nueva_unidad.py"
+python "%ASISTENTE%\nueva_unidad.py"
 pause
 goto menu
 
 :instalar
-python -m pip install -r "asistente_estudio\requirements.txt"
+python -m pip install -r "%ASISTENTE%\requirements.txt"
 pause
 goto menu
 
