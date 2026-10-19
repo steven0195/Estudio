@@ -11,7 +11,8 @@ if errorlevel 1 (
 )
 
 set "atajo=?"
-for /f "usebackq delims=" %%A in (`python -c "import json; print(json.load(open(r'%ASISTENTE%/config.json', encoding='utf-8')).get('hotkey', '?'))" 2^>nul`) do set "atajo=%%A"
+set "atajo_lectura=?"
+for /f "usebackq delims=" %%A in (`python -c "import sys; sys.path.insert(0, r'%ASISTENTE%'); from nucleo import cargar_config; c = cargar_config(); print(c['hotkey'] + '|' + c['hotkey_lectura'])" 2^>nul`) do for /f "tokens=1,2 delims=|" %%B in ("%%A") do (set "atajo=%%B" & set "atajo_lectura=%%C")
 
 :menu
 cls
@@ -22,6 +23,7 @@ echo   2. Transcriptor de documentos (.txt/.pdf/.docx/.pptx/.doc a Markdown)
 echo   3. Solucionador de actividades (borrador punto por punto, con RAG)
 echo   4. Nueva unidad (crea el esqueleto de carpetas y archivos base)
 echo   5. Instalar/actualizar dependencias
+echo   6. Modo lectura (capturas continuas de un libro, atajo: %atajo_lectura%)
 echo   0. Salir
 echo.
 set "opcion="
@@ -32,6 +34,7 @@ if "%opcion%"=="2" goto transcriptor
 if "%opcion%"=="3" goto solucionador
 if "%opcion%"=="4" goto nueva_unidad
 if "%opcion%"=="5" goto instalar
+if "%opcion%"=="6" goto lectura
 if "%opcion%"=="0" goto fin
 echo.
 echo Opcion invalida.
@@ -61,6 +64,11 @@ goto menu
 
 :nueva_unidad
 python "%ASISTENTE%\nueva_unidad.py"
+pause
+goto menu
+
+:lectura
+python "%ASISTENTE%\modo_lectura.py"
 pause
 goto menu
 
