@@ -15,3 +15,4 @@ tags: []
 ## Unidades
 
 - [Unidad 1 - CAMBIO ORGANIZACIONAL](<Unidad 1 - CAMBIO ORGANIZACIONAL>)
+- [Unidad 2 - GESTIÓN Y FASES DEL CAMBIO](<Unidad 2 - GESTIÓN Y FASES DEL CAMBIO>)

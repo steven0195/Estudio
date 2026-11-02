@@ -15,3 +15,4 @@ tags: []
 ## Unidades
 
 - [Unidad 1 - Fundamentos generales de liderazgo](<Unidad 1 - Fundamentos generales de liderazgo>)
+- [Unidad 2 - Liderazgo Gerencial y Adaptativo](<Unidad 2 - Liderazgo Gerencial y Adaptativo>)
