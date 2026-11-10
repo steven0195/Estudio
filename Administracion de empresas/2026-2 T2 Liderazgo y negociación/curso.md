@@ -16,3 +16,4 @@ tags: []
 
 - [Unidad 1 - Fundamentos generales de liderazgo](<Unidad 1 - Fundamentos generales de liderazgo>)
 - [Unidad 2 - Liderazgo Gerencial y Adaptativo](<Unidad 2 - Liderazgo Gerencial y Adaptativo>)
+- [Unidad 3 - Fundamentos de Negociación](<Unidad 3 - Fundamentos de Negociación>)

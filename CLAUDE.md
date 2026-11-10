@@ -69,7 +69,7 @@ Archivos vacíos con solo el frontmatter y una nota "Borrador vacío" son planti
 
 `D:/Repos/General/proyectos/asistente_estudio/` agrupa las herramientas que se apoyan en LM Studio (u
 otros scripts sin dependencias) para ayudar con el repo. Se inician desde
-`start.bat` (raíz) — un menú con las cuatro opciones — o cada una por su
+`start.bat` (raíz) — un menú con todas las opciones — o cada una por su
 cuenta desde la terminal. `nucleo.py`, dentro de esa carpeta, tiene las
 funciones y la configuración (`config.json`) que comparten los demás; no se
 corre directo.
@@ -137,6 +137,15 @@ de todo el curso).
 
 **Nueva unidad** (`D:/Repos/General/proyectos/asistente_estudio/nueva_unidad.py`, opción 4 de
 `start.bat`) — ver la sección "Estructura" más arriba.
+
+**Markdown a audio** (`D:/Repos/General/proyectos/asistente_estudio/md_a_audio.py`, opción 7 de
+`start.bat`) — convierte un `.md` (o todos los de una carpeta) en audio con la
+voz sintética de Windows (SAPI, sin LM Studio). Limpia el Markdown para que
+se pueda oír (tablas fila por fila, sin código ni HTML, símbolos en palabras)
+y en los bancos de preguntas deja un silencio antes de cada respuesta
+`<details>`. Guarda `<nombre>.mp3` junto al `.md` con capítulos por sección
+`##`, o con `--secciones` una pista por sección en `<nombre> - audio/`. Los
+audios son derivados del `.md`: no tienen contenido propio que leer.
 
 Ver [D:/Repos/General/proyectos/asistente_estudio/LEEME.md](D:/Repos/General/proyectos/asistente_estudio/LEEME.md) para
 instalación y uso de los cuatro programas.

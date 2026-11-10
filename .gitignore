@@ -2,3 +2,8 @@ asistente_estudio/__pycache__/
 asistente_estudio/estado.json
 asistente_estudio/_captura_temp.png
 **/fuentes/.rag_cache.json
+
+# Audios generados por md_a_audio.py (se regeneran desde los .md)
+*.mp3
+*.wav
+* - audio/

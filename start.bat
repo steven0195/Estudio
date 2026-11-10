@@ -24,6 +24,7 @@ echo   3. Solucionador de actividades (borrador punto por punto, con RAG)
 echo   4. Nueva unidad (crea el esqueleto de carpetas y archivos base)
 echo   5. Instalar/actualizar dependencias
 echo   6. Modo lectura (capturas continuas de un libro, atajo: %atajo_lectura%)
+echo   7. Markdown a audio (escuchar apuntes y guiones con la voz de Windows)
 echo   0. Salir
 echo.
 set "opcion="
@@ -35,6 +36,7 @@ if "%opcion%"=="3" goto solucionador
 if "%opcion%"=="4" goto nueva_unidad
 if "%opcion%"=="5" goto instalar
 if "%opcion%"=="6" goto lectura
+if "%opcion%"=="7" goto audio
 if "%opcion%"=="0" goto fin
 echo.
 echo Opcion invalida.
@@ -69,6 +71,11 @@ goto menu
 
 :lectura
 python "%ASISTENTE%\modo_lectura.py"
+pause
+goto menu
+
+:audio
+python "%ASISTENTE%\md_a_audio.py"
 pause
 goto menu
 
