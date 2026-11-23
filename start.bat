@@ -25,6 +25,7 @@ echo   4. Nueva unidad (crea el esqueleto de carpetas y archivos base)
 echo   5. Instalar/actualizar dependencias
 echo   6. Modo lectura (capturas continuas de un libro, atajo: %atajo_lectura%)
 echo   7. Markdown a audio (escuchar apuntes y guiones con la voz de Windows)
+echo   8. Resumen de una unidad (lee fuentes y apuntes, guion de estudio en apuntes/)
 echo   0. Salir
 echo.
 set "opcion="
@@ -37,6 +38,7 @@ if "%opcion%"=="4" goto nueva_unidad
 if "%opcion%"=="5" goto instalar
 if "%opcion%"=="6" goto lectura
 if "%opcion%"=="7" goto audio
+if "%opcion%"=="8" goto resumen
 if "%opcion%"=="0" goto fin
 echo.
 echo Opcion invalida.
@@ -76,6 +78,14 @@ goto menu
 
 :audio
 python "%ASISTENTE%\md_a_audio.py"
+pause
+goto menu
+
+:resumen
+set "ruta="
+set /p ruta="Ruta de la carpeta de la unidad: "
+if "%ruta%"=="" goto menu
+python "%ASISTENTE%\resumen_unidad.py" "%ruta%"
 pause
 goto menu
 
